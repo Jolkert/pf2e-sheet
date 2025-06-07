@@ -3,4 +3,7 @@
 #![allow(dead_code)]
 
 pub mod data;
+pub mod ancestries;
+pub mod stats;
+pub mod fluff;
 pub struct Character;

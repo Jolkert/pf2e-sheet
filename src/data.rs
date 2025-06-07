@@ -3,7 +3,9 @@
 
 // Todo: Honglos Hüberhaus
 
-use std::collections::HashMap;
+use std::{collections::HashMap};
+use saikoro::{evaluation::SymbolTable, *};
+use crate::{ancestries::*, stats::*, fluff::*};
 
 pub struct Character {
     level: u8,
@@ -17,15 +19,15 @@ pub struct Character {
 
     attributes: Attributes,
 
-    saves: Saves,
+    stats: HashMap<String, Stat>,
+
+    roll_modifiers: SymbolTable,
 
     damage: u16,
     temp_hp: u16,
 
     conditions: HashMap<String, u8>,
     damage_types: HashMap<String, DamageScale>,
-
-    skills: Skills,
 
     languages: Vec<String>,
 
@@ -36,7 +38,73 @@ pub struct Character {
     wealth: Wealth,
 }
 
+impl Default for Character {
+    fn default() -> Self {
+
+        let mut character = Character {
+            level: 1,
+            hero_points: 1,
+            ancestry: Ancestry::default(),
+            heritage: Heritage::default(),
+            background: Background::default(),
+            class: Class::default(),
+            attributes: Attributes::default(),
+            stats: HashMap::<String, Stat>::new(),
+            roll_modifiers: SymbolTable::new(),
+            damage: 0_u16,
+            temp_hp: 0_u16,
+            conditions: HashMap::<String, u8>::new(),
+            damage_types: HashMap::<String, DamageScale>::new(),
+            languages: Vec::<String>::new(),
+            proficiencies: Proficiencies::default(),
+            feats: Vec::<Feat>::new(),
+            wealth: Wealth::default(),
+        };
+
+        character.insert_stat("Acrobatics",     Stat::new(Attribute::Dex, Proficiency::Untrained));
+        character.insert_stat("Arcana",         Stat::new(Attribute::Int, Proficiency::Untrained));
+        character.insert_stat("Athletics",      Stat::new(Attribute::Str, Proficiency::Untrained));
+        character.insert_stat("Crafting",       Stat::new(Attribute::Int, Proficiency::Untrained));
+        character.insert_stat("Deception",      Stat::new(Attribute::Cha, Proficiency::Untrained));
+        character.insert_stat("Diplomacy",      Stat::new(Attribute::Cha, Proficiency::Untrained));
+        character.insert_stat("Intimidation",   Stat::new(Attribute::Cha, Proficiency::Untrained));
+        character.insert_stat("Medicine",       Stat::new(Attribute::Wis, Proficiency::Untrained));
+        character.insert_stat("Nature",         Stat::new(Attribute::Wis, Proficiency::Untrained));
+        character.insert_stat("Occultism",      Stat::new(Attribute::Int, Proficiency::Untrained));
+        character.insert_stat("Perception",     Stat::new(Attribute::Wis, Proficiency::Untrained));
+        character.insert_stat("Performance",    Stat::new(Attribute::Cha, Proficiency::Untrained));
+        character.insert_stat("Religion",       Stat::new(Attribute::Wis, Proficiency::Untrained));
+        character.insert_stat("Society",        Stat::new(Attribute::Int, Proficiency::Untrained));
+        character.insert_stat("Stealth",        Stat::new(Attribute::Dex, Proficiency::Untrained));
+        character.insert_stat("Survival",       Stat::new(Attribute::Wis, Proficiency::Untrained));
+        character.insert_stat("Thievery",       Stat::new(Attribute::Dex, Proficiency::Untrained));
+        character.insert_stat("Fortitude",      Stat::new(Attribute::Con, Proficiency::Untrained));
+        character.insert_stat("Reflex",         Stat::new(Attribute::Dex, Proficiency::Untrained));
+        character.insert_stat("Will",           Stat::new(Attribute::Wis, Proficiency::Untrained));
+
+        character
+
+    }
+}
+
 impl Character {
+    fn insert_stat(&mut self, name: &str, stat_val: Stat) {
+
+        let mut roll_str = Attribute::to_string(stat_val.attribute).unwrap();
+        roll_str.insert(0, '{');
+        roll_str.push('}');
+
+        let proficiency_bonus = stat_val.proficiency.bonus();
+
+        if proficiency_bonus > 0 {
+            roll_str.push_str(&format!(" + {{level}} + {proficiency_bonus}"));
+        }
+
+        self.stats.insert(name.to_string(), stat_val);
+
+        self.roll_modifiers.insert(name, &roll_str);
+    }
+
     fn max_hp(&self) -> u16 {
         return self.ancestry.base_hp as u16 + (self.level as u16)*(self.class.hp as u16 + self.attributes.constitution.bonus as u16);
     }
@@ -112,12 +180,12 @@ enum DamageScale {
     Immune,
 }
 
+
 struct Class {
     id: Identifier,
     key_attribute: Attribute,
     hp: u8,
-    saves: Saves,
-    skills: Vec<(Skill, Proficiency)>,
+    skills: Vec<(Stat, Proficiency)>,
     bonus_skills: u8,
     proficiencies: Proficiencies,
     subclasses: Vec<Subclass>,
@@ -132,83 +200,17 @@ struct Feat {
     text: String,
 }
 
-struct Feature {
-    id: Identifier,
-    text: String,
-}
-
 struct Condition {
     id: String,
     value: i8,
 }
 
-struct Skills {
-    acrobatics: Proficiency,
-    arcana: Proficiency,
-    athletics: Proficiency,
-    crafting: Proficiency,
-    deception: Proficiency,
-    diplomacy: Proficiency,
-    intimidation: Proficiency,
-    medicine: Proficiency,
-    nature: Proficiency,
-    occultism: Proficiency,
-    perception: Proficiency,
-    performance: Proficiency,
-    religion: Proficiency,
-    society: Proficiency,
-    stealth: Proficiency,
-    survival: Proficiency,
-    thievery: Proficiency,
-    lore: Vec<(String, Proficiency)>
-}
-
-enum Skill {
-    Acrobatics,
-    Arcana,
-    Athletics,
-    Crafting,
-    Deception,
-    Diplomacy,
-    Intimidation,
-    Medicine,
-    Nature,
-    Occultism,
-    Perception,
-    Performance,
-    Religion,
-    Society,
-    Stealth,
-    Survival,
-    Thievery,
-    Lore(String),
-}
-
-struct Attributes {
-    strength: AttributeValue,
-    dexterity: AttributeValue,
-    constitution: AttributeValue,
-    intelligence: AttributeValue,
-    wisdom: AttributeValue,
-    charisma: AttributeValue,
-}
-
-struct Saves {
-    fortitude: Proficiency,
-    reflex: Proficiency,
-    will: Proficiency,
-}
-
-struct Identifier {
-    id: String,
-    traits: Vec<String>,
-}
 
 struct Background {
     id: Identifier,
     fuck_you_morgan: Vec<Attribute>,
     free_attributes: u8,
-    skills: Vec<Skill>,
+    skills: Vec<Stat>,
     feats: Vec<Feat>,
     summary: String,
 }
@@ -218,70 +220,6 @@ struct Heritage {
     features: Vec<Feature>,
 }
 
-struct Ancestry {
-    id: Identifier,
-    size: SizeClass,
-    speed: u8,
-    base_hp: u8,
-    at_boost: Vec<Attribute>,
-    at_flaw: Vec<Attribute>,
-    base_langs: Vec<String>,
-    rec_langs: Vec<String>,
-    bonus_langs: u8,
-    features: Vec<Feature>,
-}
-
-enum SizeClass {
-    Tiny,
-    Small,
-    Medium,
-    Large,
-    Huge,
-    Gargantuan,
-}
-
-struct AttributeValue {
-    bonus: i8,
-    partial: bool,
-}
-
-impl std::ops::Add<i8> for AttributeValue {
-    fn add(self, rhs: i8) -> Self::Output {
-        todo!()
-    }
-
-    type Output = Self;
-}
-
-enum Attribute {
-    Free,
-    Str,
-    Dex,
-    Con,
-    Int,
-    Wis,
-    Cha,
-}
-
-enum Proficiency {
-    Untrained,
-    Trained,
-    Expert,
-    Master,
-    Legendary,
-}
-
-impl Proficiency {
-    fn bonus(&self) -> u8 {
-        match self {
-            Self::Untrained => 0,
-            Self::Trained => 2,
-            Self::Expert => 4,
-            Self::Master => 6,
-            Self::Legendary => 8,
-        }
-    }
-}
 
 struct Proficiencies {
     unarmored: Proficiency,
