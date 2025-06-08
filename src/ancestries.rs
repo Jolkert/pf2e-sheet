@@ -2,7 +2,10 @@ use std::collections::HashMap;
 
 use serde::{Deserialize, Serialize};
 
-use crate::{fluff::*, stats::*};
+use crate::{
+	fluff::{Feature, Identifier},
+	stats::Attribute,
+};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Ancestry {

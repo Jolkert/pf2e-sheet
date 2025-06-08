@@ -1,7 +1,6 @@
-use saikoro::parsing::Node;
 use serde::{Deserialize, Serialize};
 
-use crate::data::*;
+use crate::data::Feat;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Identifier {

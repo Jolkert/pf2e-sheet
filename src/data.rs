@@ -5,10 +5,14 @@
 
 use std::collections::HashMap;
 
-use saikoro::{evaluation::SymbolTable, *};
+use saikoro::evaluation::SymbolTable;
 use serde::{Deserialize, Serialize};
 
-use crate::{ancestries::*, fluff::*, stats::*};
+use crate::{
+	ancestries::Ancestry,
+	fluff::{Feature, Identifier},
+	stats::{Attribute, Attributes, Proficiency, Stat},
+};
 
 pub struct Character {
 	level: u8,
