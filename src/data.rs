@@ -173,7 +173,7 @@ impl Character {
 		if self.conditions.contains_key("Dying") {
 			self.conditions.insert(String::from("Dying"), 0);
 
-			let wounded = self.conditions.get("Wounded").unwrap_or(&0_u8);
+			let wounded = self.conditions.get("Wounded").copied().unwrap_or_default();
 
 			self.conditions.insert(String::from("Wounded"), wounded + 1);
 		}
