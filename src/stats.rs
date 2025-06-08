@@ -19,7 +19,7 @@ pub struct AttributeValue {
 }
 
 impl std::ops::Add<i8> for AttributeValue {
-	fn add(self, rhs: i8) -> Self::Output {
+	fn add(self, _rhs: i8) -> Self::Output {
 		todo!()
 	}
 

@@ -107,13 +107,15 @@ impl Character {
 
 		self.stats.insert(name.to_string(), stat_val);
 
-		self.roll_modifiers.insert(name, &roll_str);
+		// TODO: we should probably properly handle this error somehow
+		// -morgan 2025-06-08
+		let _ = self.roll_modifiers.insert(name, &roll_str);
 	}
 
 	fn max_hp(&self) -> u16 {
-		return self.ancestry.base_hp as u16
+		self.ancestry.base_hp as u16
 			+ (self.level as u16)
-				* (self.class.hp as u16 + self.attributes.constitution.bonus as u16);
+				* (self.class.hp as u16 + self.attributes.constitution.bonus as u16)
 	}
 
 	fn hurt(&mut self, dmg_amount: u16, dmg_type: String, crit: bool) {
@@ -150,16 +152,14 @@ impl Character {
 				self.conditions.insert(String::from("Dead"), 1);
 				self.conditions.insert(String::from("Doomed"), 0);
 			}
+		} else if total_damage <= self.temp_hp {
+			self.temp_hp -= total_damage;
+		} else if total_damage < self.max_hp() + self.damage {
+			self.temp_hp = 0;
+			self.damage += total_damage;
 		} else {
-			if total_damage <= self.temp_hp {
-				self.temp_hp -= total_damage;
-			} else if total_damage < self.max_hp() + self.damage {
-				self.temp_hp = 0;
-				self.damage += total_damage;
-			} else {
-				self.damage = self.max_hp();
-				self.conditions.insert(String::from("Dying"), 1);
-			}
+			self.damage = self.max_hp();
+			self.conditions.insert(String::from("Dying"), 1);
 		}
 	}
 
@@ -170,7 +170,7 @@ impl Character {
 			self.damage = 0;
 		}
 
-		if let Some(_) = self.conditions.get("Dying") {
+		if self.conditions.contains_key("Dying") {
 			self.conditions.insert(String::from("Dying"), 0);
 
 			let wounded = self.conditions.get("Wounded").unwrap_or(&0_u8);
