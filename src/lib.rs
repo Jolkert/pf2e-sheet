@@ -2,8 +2,8 @@
 // -morgan 2025-05-22\
 #![allow(dead_code)]
 
-pub mod data;
 pub mod ancestries;
-pub mod stats;
+pub mod data;
 pub mod fluff;
+pub mod stats;
 pub struct Character;
