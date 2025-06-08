@@ -6,7 +6,6 @@
 use std::collections::HashMap;
 
 use saikoro::evaluation::SymbolTable;
-use serde::{Deserialize, Serialize};
 
 use crate::{
 	ancestries::Ancestry,
@@ -199,7 +198,7 @@ struct Class {
 
 struct Subclass {}
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Feat {
 	pub id: Identifier,
 	pub text: String,

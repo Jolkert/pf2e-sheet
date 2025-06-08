@@ -1,14 +1,12 @@
-use serde::{Deserialize, Serialize};
-
 use crate::data::Feat;
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Identifier {
 	pub id: String,
 	pub traits: Vec<String>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub enum Feature {
 	Attack(Weapon),
 	Flavor(Flavor),
@@ -18,7 +16,7 @@ pub enum Feature {
 	Condition(Condition),
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Weapon {
 	pub id: Identifier,
 	pub price: u16,
@@ -31,7 +29,7 @@ pub struct Weapon {
 	pub category: WeaponCategory,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub enum WeaponGroup {
 	Axe,
 	Bow,
@@ -52,7 +50,7 @@ pub enum WeaponGroup {
 	Bomb,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub enum WeaponCategory {
 	Advanced,
 	Ammunition,
@@ -61,7 +59,7 @@ pub enum WeaponCategory {
 	Unarmed,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Action {
 	id: Identifier,
 	actions: u8,
@@ -70,27 +68,27 @@ pub struct Action {
 	flavor: String,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Flavor {
 	id: Identifier,
 	flavor: String,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Circumstance {
 	id: Identifier,
 	bonuses: Vec<CircumstanceBonus>,
 	flavor: String,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct CircumstanceBonus {
 	stat_name: String,
 	circumstance: Vec<String>,
 	bonus: i8,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, serde::Deserialize, serde::Serialize)]
 pub struct Condition {
 	name: String,
 	level: u8,
