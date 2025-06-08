@@ -1,0 +1,31 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Dwarf",
+    traits: ["Dwarf", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 20},
+  base_hp: 10,
+  at_boost: [Con, Wis, Free],
+  at_flaw: [Cha],
+  base_langs: ["Common", "Dwarven"],
+  rec_langs: ["Gnomish", "Goblin", "Jotun", "Orcish", "Petran", "Sakvroth"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Darkvision",
+        traits: [],
+      ),
+      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Clan Dagger",
+        traits: [],
+      ),
+      flavor: "You get one clan dagger for free, as it was given to you at birth. Selling this clan dagger is a terrible taboo and earns you the disdain of other dwarves.",
+    ),
+  ],
+)

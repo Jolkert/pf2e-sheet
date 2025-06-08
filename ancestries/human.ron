@@ -1,0 +1,17 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Human",
+    traits: ["Human", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Free, Free],
+  at_flaw: [],
+  base_langs: ["Common"],
+  rec_langs: [],
+  bonus_langs: 1,
+  features: [
+  ],
+)

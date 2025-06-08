@@ -1,0 +1,24 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Elf",
+    traits: ["Elf", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 30},
+  base_hp: 6,
+  at_boost: [Dex, Int, Free],
+  at_flaw: [Con],
+  base_langs: ["Common", "Elven"],
+  rec_langs: ["Draconic", "Empyrean", "Fey", "Gnomish", "Goblin", "Kholo", "Orcish"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light. ",
+    ),
+  ],
+)

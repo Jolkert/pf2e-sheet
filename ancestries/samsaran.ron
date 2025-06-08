@@ -1,0 +1,45 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Samsaran",
+    traits: ["Uncommon", "Humanoid", "Samsaran"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Con, Wis, Free],
+  at_flaw: [Cha],
+  base_langs: ["Common", "Samsaran"],
+  rec_langs: ["Chthonian", "Diabolic", "Draconian", "Empyrean", "Jotun", "Petran", "Pyric", "Sussuran", "Thalassic"],
+  bonus_langs: 0,
+  features: [
+    Circumstance(
+      id: Identifier(
+        id: "Cryptomnesia",
+        traits: [],
+      ),
+      bonuses: [
+        (
+          stat_name: "All", // FIX THIS
+          circumstance: ["Untrained"],
+          bonus: +1,
+        ),
+      ]
+      flavor: "You retain bits of knowledge from your former lives. You gain a +1 circumstance bonus to untrained skill checks.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Wanderer's Soul",
+        traits: [],
+      ),
+      flavor: "Your soul is especially able to return to the cycle of reincarnation. When you're the subject of raise dead, reincarnate, or a similar ritual that would return you to life, the primary caster uses the outcome one degree of success better than their roll. You always return to life as a samsaran, even if the ritual would reincarnate you into a body of a different ancestry.",
+    ),
+  ],
+)

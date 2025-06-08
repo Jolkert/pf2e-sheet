@@ -1,0 +1,24 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Skeleton",
+    traits: ["Rare", "Skeleton", "Undead"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Int],
+  base_langs: ["Common", "Necril"],
+  rec_langs: ["Aklo", "Dwarven", "Elven", "Infernal", "Orcish", "Undercommon"],
+  bonus_langs: 0,
+  features: [
+    Flavor( // EXPAND UPON THIS
+      id: Identifier(
+        id: "Undeath",
+        traits: [],
+      ),
+      flavor: "You have basic undead benefits. For your undead hunger, you don't eat flesh like ghouls or drink blood like vampires, but you do collect bones you can use to help yourself mend.",
+    ),
+  ],
+)

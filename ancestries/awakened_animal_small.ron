@@ -1,0 +1,31 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Awakened Animal (Tiny/Small)",
+    traits: ["Rare", "Awakened Animal", "Beast"],
+  ),
+  size: [Tiny, Small],
+  speed: {}, // this is determined fully by heritage
+  base_hp: 6,
+  at_boost: [Con, Wis, Free],
+  at_flaw: [Int],
+  base_langs: ["Common"],
+  rec_langs: [],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Awakened Form",
+        traits: [],
+      ),
+      flavor: "Awakening altered your form, enabling you to speak verbally and stand on two legs. You can wear, hold, wield, and use items. Which limbs you use to manipulate items and how many are determined by you and your GM, but for the rules you function like a humanoid with two hands.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Awakened Mind",
+        traits: [],
+      ),
+      flavor: "Awakening altered your mind. You are no longer an animal, but you can still ask questions of, receive answers from, and use the Diplomacy skill with animals of your kind. By remembering your instincts, you can allow yourself to be affected by spells and other effects as though you were an animal.",
+    ),
+  ],
+)

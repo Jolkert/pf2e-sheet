@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Kholo",
+    traits: ["Uncommon", "Humanoid", "Kholo"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Str, Int, Free],
+  at_flaw: [Wis],
+  base_langs: ["Common", "Kholo"],
+  rec_langs: ["Draconic", "Elven", "Fey", "Iruxi", "Necril", "Orcish"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+    Attack(
+      id: Identifier(
+        id: "Bite",
+        traits: ["Unarmed"],
+      ),
+      price: 0,
+      damage: "1d6",
+      damage_type: "Piercing",
+      range: 5,
+      bulk: 0,
+      hands: 0,
+      group: Brawling,
+      category: Unarmed,
+    ),
+  ],
+)

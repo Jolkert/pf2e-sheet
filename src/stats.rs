@@ -1,3 +1,5 @@
+use serde::{Deserialize, Serialize};
+
 pub struct Stat {
   pub attribute: Attribute,
   pub proficiency: Proficiency,
@@ -12,9 +14,10 @@ impl Stat {
   }
 }
 
-struct AttributeValue {
-  bonus: i8,
-  partial: bool,
+#[derive (Debug, Deserialize, Serialize)]
+pub struct AttributeValue {
+  pub bonus: i8,
+  pub partial: bool,
 }
 
 impl std::ops::Add<i8> for AttributeValue {
@@ -25,6 +28,7 @@ impl std::ops::Add<i8> for AttributeValue {
   type Output = Self;
 }
 
+#[derive (Debug, Deserialize, Serialize)]
 pub struct Attributes {
   pub strength: AttributeValue,
   pub dexterity: AttributeValue,
@@ -34,7 +38,7 @@ pub struct Attributes {
   pub charisma: AttributeValue,
 }
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug, Deserialize, Serialize)]
 pub enum Attribute {
   Free = 0xFF,
   Str = 0x01,

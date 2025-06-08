@@ -1,0 +1,24 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Goblin",
+    traits: ["Goblin", "Humanoid"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Wis],
+  base_langs: ["Common", "Goblin"],
+  rec_langs: ["Draconic", "Dwarven", "Gnomish", "Halfling", "Kholo", "Orcish"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Darkvision",
+        traits: [],
+      ),
+      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+    ),
+  ],
+)

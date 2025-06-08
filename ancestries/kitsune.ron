@@ -1,0 +1,34 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Kitsune",
+    traits: ["Uncommon", "Humanoid", "Kitsune"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Cha, Free],
+  at_flaw: [],
+  base_langs: ["Common"],
+  rec_langs: ["Elven", "Gnomish", "Goblin", "Halfling", "Dwarven", "Sylvan"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Action(
+      id: Identifier(
+        id: "Change Shape",
+        traits: ["Concentrate", "Divine", "Kitsune", "Polymorph", "Transmutation"],
+      ),
+      actions: 1,
+      reaction: false,
+      trigger: "",
+      flavor: "You transform into a specific alternate form determined by your heritage. If your heritage doesn't list a form, your alternate form is a tailless form, which is a common Medium humanoid ancestry prevalent where you grew up (typically human). This form is the same age and body type as your true form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You lose any unarmed Strikes you gained from a kitsune heritage or ancestry feat in this form. You can remain in your alternate form indefinitely, and you can shift back to your true kitsune form by using this action again.",
+    ),
+  ],
+)

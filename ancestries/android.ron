@@ -1,0 +1,72 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Android",
+    traits: ["Rare", "Android", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Dex, Int, Free],
+  at_flaw: [Cha],
+  base_langs: ["Common", "Androffan"],
+  rec_langs: ["Abyssal", "Celestial", "Draconic", "Dwarven", "Undercommon", "Utopian"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Circumstance(
+      id: Identifier(
+        id: "Constructed",
+        traits: [],
+      ),
+      bonuses: [
+        (
+          stat_name: "Fortitude",
+          circumstance: ["Disease", "Poison", "Radiation"],
+          bonus: +1,
+        ),
+        (
+          stat_name: "Reflex",
+          circumstance: ["Disease", "Poison", "Radiation"],
+          bonus: +1,
+        ),
+        (
+          stat_name: "Will",
+          circumstance: ["Disease", "Poison", "Radiation"],
+          bonus: +1,
+        ),
+      ],
+      flavor: "Your synthetic body resists ailments better than those of purely biological organisms. You gain a +1 circumstance bonus to saving throws against diseases, poisons, and radiation."
+    ),
+    Circumstance(
+      id: Identifier (
+        id: "Emotionally Unaware",
+        traits: [],
+      ),
+      bonuses: [
+        (
+          stat_name: "Diplomacy",
+          circumstance: [],
+          bonus: -1,
+        ),
+        (
+          stat_name: "Performance",
+          circumstance: [],
+          bonus: -1,
+        ),
+        (
+          stat_name: "Perception",
+          circumstance: ["Sense Motive"],
+          bonus: -1,
+        ),
+      ],
+      flavor: "You find it difficult to understand and express complex emotions. You take a –1 circumstance penalty to Diplomacy and Performance checks, and on Perception checks to Sense Motive. "
+    )
+  ],
+)

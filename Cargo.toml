@@ -5,6 +5,9 @@ edition = "2024"
 
 [dependencies]
 lazy_static = "1.5.0"
+ron = "0.10.1"
 # "TODO: Morgan for the love of god please publish a real saikoro version we are not fucking troglodytes"
 # - Morgan 2025-06-06
-saikoro = { git = "https://github.com/jolkert/saikoro.git" }
+saikoro = "2.0.0-dev"
+serde = {version = "1.0.219", features = ["derive"]}
+

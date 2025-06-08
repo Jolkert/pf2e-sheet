@@ -1,0 +1,24 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Kobold",
+    traits: ["Uncommon", "Humanoid", "Kobold"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Con],
+  base_langs: ["Common", "Sakvroth"],
+  rec_langs: ["Aklo", "Diabolic", "Draconic", "Dwarven", "Empyrean", "Fey", "Gnomish", "Petran"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Darkvision",
+        traits: [],
+      ),
+      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+    ),
+  ],
+)

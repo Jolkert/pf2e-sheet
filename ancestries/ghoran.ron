@@ -1,0 +1,31 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Ghoran",
+    traits: ["Rare", "Ghoran", "Humanoid", "Plant"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Con, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Sylvan"],
+  rec_langs: ["Aklo", "Draconic", "Elven", "Gnomish", "Jotun"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Photosynthesis",
+        traits: [],
+      ),
+      flavor: "You gain nourishment from photosynthesis. You typically don't need to pay for food. If you go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of alchemical sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (40 sp).",
+    ),
+  ],
+)

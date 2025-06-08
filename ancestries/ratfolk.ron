@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Ratfolk",
+    traits: ["Uncommon", "Humanoid", "Ratfolk"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Int, Free],
+  at_flaw: [Str],
+  base_langs: ["Common", "Ysoki"],
+  rec_langs: ["Aklo", "Draconic", "Dwarven", "Gnomish", "Goblin", "Halfling", "Kholo", "Orcish", "Sakvroth"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+    Attack(
+      id: Identifier(
+        id: "Sharp Teeth",
+        traits: ["Agile", "Finesse"],
+      ),
+      price: 0,
+      damage: "1d4",
+      damage_type: "Piercing",
+      range: 5,
+      bulk: 0,
+      hands: 0,
+      group: Brawling,
+      category: Unarmed,
+    ),
+  ],
+)

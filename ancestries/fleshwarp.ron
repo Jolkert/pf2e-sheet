@@ -1,0 +1,48 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Fleshwarp",
+    traits: ["Rare", "Aberration", "Fleshwarp", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 10,
+  at_boost: [Con, Free],
+  at_flaw: [],
+  base_langs: ["Common"],
+  rec_langs: ["Aklo", "Draconic", "Dwarven", "Elven", "Goblin", "Undercommon"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Circumstance(
+      id: Identifier(
+        id: "Unusual Anatomy",
+        traits: [],
+      ),
+      bonuses: [
+        (
+            stat_name: "Fortitude",
+            circumstance: ["Disease", "Poison"],
+            bonus: +1,
+        ),
+        (
+            stat_name: "Reflex",
+            circumstance: ["Disease", "Poison"],
+            bonus: +1,
+        ),
+        (
+            stat_name: "Will",
+            circumstance: ["Disease", "Poison"],
+            bonus: +1,
+        ),
+      ],
+      flavor: "Your unorthodox body resists physical afflictions meant for other creatures. You gain a +1 circumstance bonus to saves against diseases and poisons."
+    ),
+  ],
+)

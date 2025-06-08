@@ -6,6 +6,7 @@
 use std::{collections::HashMap};
 use saikoro::{evaluation::SymbolTable, *};
 use crate::{ancestries::*, stats::*, fluff::*};
+use serde::{Deserialize, Serialize};
 
 pub struct Character {
     level: u8,
@@ -38,7 +39,7 @@ pub struct Character {
     wealth: Wealth,
 }
 
-impl Default for Character {
+/*impl Default for Character {
     fn default() -> Self {
 
         let mut character = Character {
@@ -85,7 +86,7 @@ impl Default for Character {
         character
 
     }
-}
+}*/
 
 impl Character {
     fn insert_stat(&mut self, name: &str, stat_val: Stat) {
@@ -180,7 +181,6 @@ enum DamageScale {
     Immune,
 }
 
-
 struct Class {
     id: Identifier,
     key_attribute: Attribute,
@@ -195,9 +195,10 @@ struct Subclass {
 
 }
 
-struct Feat {
-    id: Identifier,
-    text: String,
+#[derive (Debug, Deserialize, Serialize)]
+pub struct Feat {
+    pub id: Identifier,
+    pub text: String,
 }
 
 struct Condition {
@@ -219,7 +220,6 @@ struct Heritage {
     id: Identifier,
     features: Vec<Feature>,
 }
-
 
 struct Proficiencies {
     unarmored: Proficiency,

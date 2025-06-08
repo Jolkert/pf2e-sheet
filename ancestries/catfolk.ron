@@ -1,0 +1,31 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Catfolk",
+    traits: ["Uncommon", "Catfolk", "Humanoid"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Wis],
+  base_langs: ["Amurrun", "Common"],
+  rec_langs: ["Draconic", "Elven", "Gnomish", "Goblin", "Halfling", "Iruxi", "Jotun", "Fey"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Land On Your Feet",
+        traits: [],
+      ),
+      flavor: "When you fall, you take only half the normal damage and don't land prone.",
+    ),
+  ],
+)

@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Sarangay",
+    traits: ["Rare", "Humanoid", "Sarangay"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Str, Cha, Free],
+  at_flaw: [Wis],
+  base_langs: ["Common"],
+  rec_langs: ["Empyrean", "Fey", "Nagaji", "Petran", "Pyric", "Sussuran", "Thalassic", "Yaksha"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Head Gem",
+        traits: [],
+      ),
+      flavor: "Upon your brow is a gem that houses your soul. When casting any spell or ritual to return you to life, your intact head gem can be substituted for your body. While you can freely remove your head gem, it's typically impossible for another creature to forcibly remove or destroy your head gem unless you're killed or permanently incapacitated first; at the GM's discretion, powerful magic or abilities can circumvent this restriction. If your head gem is removed or destroyed, it can be regrown using a day-long ritual. When this occurs, any remains of the previous gem immediately crumble to dust.",
+    ),
+    Attack(
+      id: Identifier(
+        id: "Horns",
+        traits: ["Shove"],
+      ),
+      price: 0,
+      damage: "1d6",
+      damage_type: "Piercing",
+      range: 5,
+      bulk: 0,
+      hands: 0,
+      group: Brawling,
+      category: Unarmed,
+    ),
+  ],
+)

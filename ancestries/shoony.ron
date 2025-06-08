@@ -1,0 +1,31 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Shoony",
+    traits: ["Rare", "Humanoid", "Shoony"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Con],
+  base_langs: ["Common", "Shoony"],
+  rec_langs: ["Dwarven", "Gnomish", "Goblin", "Halfling", "Terran"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Blunt Snout",
+        traits: [],
+      ),
+      flavor: "Your small, blunt snout and labyrinthine sinus system make you resistant to phenomena that assail the nose. When you roll a saving throw against inhaled threats (such as inhaled poisons) and olfactory effects (such as xulgath stench), you get the outcome one degree of success better than the result of your roll."
+    ),
+  ],
+)

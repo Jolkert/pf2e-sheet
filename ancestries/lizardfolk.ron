@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Lizardfolk",
+    traits: ["Uncommon", "Humanoid", "Lizardfolk"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Str, Wis, Free],
+  at_flaw: [Int],
+  base_langs: ["Common", "Iruxi"],
+  rec_langs: ["Amurrun", "Boggard", "Draconic", "Elven", "Fey", "Jotun", "Thalassic"],
+  bonus_langs: 0,
+  features: [
+    Feat(
+      id: Identifier(
+        id: "Breath Control",
+        traits: ["General"],
+      ),
+      text: "You can breathe even in hazardous or sparse air. You can hold your breath for 25 times as long as usual before suffocating. You gain a +1 circumstance bonus to saving throws against inhaled threats, such as inhaled poisons, and if you roll a success on such a saving throw, you get a critical success instead.",
+    ),
+    Attack(
+      id: Identifier(
+        id: "Claws",
+        traits: ["Agile", "Finesse"],
+      ),
+      price: 0,
+      damage: "1d4",
+      damage_type: "Slashing",
+      range: 5,
+      bulk: 0,
+      hands: 1,
+      group: Brawling,
+      category: Unarmed,
+    ),
+  ],
+)

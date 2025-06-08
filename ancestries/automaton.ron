@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Automaton",
+    traits: ["Rare", "Automaton", "Construct"],
+  ),
+  size: [Small, Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Str, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Utopian"],
+  rec_langs: ["Abyssal", "Aquan", "Auran", "Celestial", "Dwarven", "Elven", "Ignan", "Infernal", "Terran"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Automaton Core",
+        traits: [],
+      ),
+      flavor: "Your body contains an automaton core infused with planar quintessence that grants you power to perform various tasks and houses your soul and life energy. This life energy flows through you much like the blood of humanoids. As a result, you are a living creature. You don't have the typical construct immunities, can be affected by effects that target a living creature, and can recover Hit Points normally via positive energy. Additionally, you are not destroyed when reduced to 0 Hit Points. Instead, your life energy attempts to keep you active even in dire straits; you are knocked out and begin dying when reduced to 0 Hit Points.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Constructed Body",
+        traits: [],
+      ),
+      flavor: "Your physiological needs are different than those of living creatures. You don't need to eat or drink. You don't need to sleep, but you still need a daily period of rest. During this period of rest, you must enter a recuperating standby state for 2 hours, which is similar to sleeping except you are aware of your surroundings and don't take penalties for being unconscious. Much like with sleeping, if you go too long without entering your standby state, you become fatigued and can't recover until you enter standby for 2 hours."
+    ),
+  ],
+)

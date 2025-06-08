@@ -1,0 +1,38 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Nagaji",
+    traits: ["Uncommon", "Humanoid", "Nagaji"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 10,
+  at_boost: [Str, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Nagaji"],
+  rec_langs: ["Aklo", "Amurrun", "Aquan", "Celestial", "Draconic", "Undercommon", "Shadowtongue", "Tengu", "Vanaran"],
+  bonus_langs: 0,
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+    ),
+    Attack(
+      id: Identifier(
+        id: "Fangs",
+        traits: ["Finesse", "Unarmed"],
+      ),
+      price: 0,
+      damage: "1d6",
+      damage_type: "Piercing",
+      range: 5,
+      bulk: 0,
+      hands: 1,
+      group: Brawling,
+      category: Unarmed,
+    ),
+  ],
+)
