@@ -17,6 +17,7 @@ pub enum Feature {
 	Circumstance(Circumstance),
 	Feat(Feat),
 	Condition(Condition),
+	Language,
 }
 
 #[derive(Debug, Deserialize, Serialize)]

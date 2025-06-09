@@ -1,0 +1,36 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Tripkee",
+    traits: ["Uncommon", "Humanoid", "Tripkee"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Wis, Free],
+  at_flaw: [Str],
+  base_langs: ["Common", "Tripkee"],
+  rec_langs: ["Boggard", "Chthonian", "Draconic", "Elven", "Fey", "Iruxi", "Thalassic"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+    Circumstance(
+      id: Identifier(
+        id: "Natural Climber",
+        traits: [],
+      ),
+      bonuses: [
+        (
+          stat_name: "Athletics",
+          circumstance: ["Climb"],
+          bonus: +2,
+        ),
+      ],
+    ),
+  ],
+)

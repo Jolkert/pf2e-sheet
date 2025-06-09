@@ -1,0 +1,23 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Wayang",
+    traits: ["Uncommon", "Humanoid", "Shadow", "Wayang"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Dex, Cha, Free],
+  at_flaw: [Con],
+  base_langs: ["Common", "Shadowtongue", "Wayang"],
+  rec_langs: ["D'ziriak", "Diabolic", "Minatan", "Nagaji", "Thalassic", "Vudrani", "Yaksha"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Darkvision",
+        traits: [],
+      ),
+      flavor: "You can see in darkness and dim light just as well as you can see in bright light. ",
+    ),
+  ],
+)

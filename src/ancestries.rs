@@ -14,7 +14,6 @@ pub struct Ancestry {
 	pub at_flaw: Vec<Attribute>,
 	pub base_langs: Vec<String>,
 	pub rec_langs: Vec<String>,
-	pub bonus_langs: u8,
 	pub features: Vec<Feature>,
 }
 

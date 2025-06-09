@@ -1,0 +1,30 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Sprite",
+    traits: ["Rare", "Fey", "Sprite"],
+  ),
+  size: [Tiny],
+  speed: {"Walk": 20},
+  base_hp: 6,
+  at_boost: [Dex, Int, Free],
+  at_flaw: [Str],
+  base_langs: ["Common", "Sylvan"],
+  rec_langs: ["Celestial", "Draconic", "Elven", "Gnomish", "Goblin", "Jotun"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Magical Strikes",
+        traits: [],
+      ),
+      flavor: "Your inherent magic pervades your entire being. All your Strikes are magical, whether with unarmed attacks or weapons.",
+    ),
+  ],
+)

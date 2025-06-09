@@ -11,7 +11,6 @@
   at_flaw: [Con],
   base_langs: ["Common", "Sakvroth"],
   rec_langs: ["Aklo", "Diabolic", "Draconic", "Dwarven", "Empyrean", "Fey", "Gnomish", "Petran"],
-  bonus_langs: 0,
   features: [
     Flavor(
       id: Identifier(

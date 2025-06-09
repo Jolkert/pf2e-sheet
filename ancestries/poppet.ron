@@ -11,7 +11,6 @@
   at_flaw: [Dex],
   base_langs: ["Common"],
   rec_langs: ["Draconic", "Dwarven", "Elven", "Gnomish", "Goblin", "Sylvan"],
-  bonus_langs: 0,
   features: [
     Flavor(
       id: Identifier(

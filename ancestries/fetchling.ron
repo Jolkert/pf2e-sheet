@@ -11,7 +11,6 @@
   at_flaw: [],
   base_langs: ["Common", "Shadowtongue"],
   rec_langs: ["Aklo", "Draconic", "D'ziriak", "Necril", "Undercommon"],
-  bonus_langs: 0,
   features: [
     Flavor(
       id: Identifier(

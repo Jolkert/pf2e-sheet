@@ -11,7 +11,6 @@
   at_flaw: [Cha],
   base_langs: ["Common", "Fey"],
   rec_langs: ["Arboreal", "Cyclops", "Dwarven", "Elven", "Gnomish", "Halfling", "Jotun"],
-  bonus_langs: 0,
   features: [
     Flavor(
       id: Identifier(

@@ -1,0 +1,23 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Vanara",
+    traits: ["Uncommon", "Humanoid", "Vanara"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 6,
+  at_boost: [Dex, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Vanara"],
+  rec_langs: ["Elven", "Gnomish", "Diabolic", "Goblin", "Fey"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Prehensile Tail",
+        traits: [],
+      ),
+      flavor: "You can use your long, flexible tail to perform Interact actions requiring a free hand, even if both hands are otherwise occupied. Your tail can't perform actions that require fingers or significant manual dexterity, including any action that would require a check to accomplish, and you can't use it to hold items.",
+    ),
+  ],
+)
