@@ -39,22 +39,23 @@ pub struct Character {
 }
 
 impl Character {
-	fn insert_stat(&mut self, name: &str, stat_val: Stat) {
-		let mut roll_str = Attribute::to_string(stat_val.attribute).unwrap();
-		roll_str.insert(0, '{');
-		roll_str.push('}');
-
-		let proficiency_bonus = stat_val.proficiency.bonus();
-
-		if proficiency_bonus > 0 {
-			roll_str.push_str(&format!(" + {{level}} + {proficiency_bonus}"));
-		}
-
-		self.stats.insert(name.to_string(), stat_val);
-
-		// TODO: we should probably properly handle this error somehow
-		// -morgan 2025-06-08
-		let _ = self.roll_modifiers.insert(name, &roll_str);
+	fn insert_stat(&mut self, _name: &str, _stat_val: Stat) {
+		todo!()
+		// let mut roll_str = Attribute::to_string(stat_val.attribute).unwrap();
+		// roll_str.insert(0, '{');
+		// roll_str.push('}');
+		//
+		// let proficiency_bonus = stat_val.proficiency.bonus();
+		//
+		// if proficiency_bonus > 0 {
+		// 	roll_str.push_str(&format!(" + {{level}} + {proficiency_bonus}"));
+		// }
+		//
+		// self.stats.insert(name.to_string(), stat_val);
+		//
+		// // TODO: we should probably properly handle this error somehow
+		// // -morgan 2025-06-08
+		// let _ = self.roll_modifiers.insert(name, &roll_str);
 	}
 
 	fn max_hp(&self) -> u16 {
