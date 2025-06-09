@@ -119,47 +119,39 @@ impl Character {
 	}
 
 	fn hurt(&mut self, dmg_amount: u16, dmg_type: String, crit: bool) {
-		let prescaler: f32;
-
-		if let Some(dmg_scale) = self.damage_types.get(&dmg_type) {
-			prescaler = match dmg_scale {
-				DamageScale::Vulnerable => 2.0,
-				DamageScale::Resistant => 0.5,
-				DamageScale::Immune => 0.0,
-			}
-		} else {
-			prescaler = 1.0;
-		}
-
-		let total_damage = (prescaler * dmg_amount as f32).floor() as u16;
-
-		if total_damage == 0 {
-			return;
+		let prescaler = match self.damage_types.get(&dmg_type) {
+			Some(DamageScale::Vulnerable) => 2.0,
+			Some(DamageScale::Resistant) => 0.5,
+			Some(DamageScale::Immune) => 0.0,
+			None => 1.0,
 		};
 
-		if let Some(dying) = self.conditions.get("Dying") {
-			if crit {
-				self.conditions.insert(String::from("Dying"), dying + 2);
+		let total_damage = (prescaler * dmg_amount as f32).floor() as u16;
+		if total_damage > 0 {
+			if let Some(dying) = self.conditions.get("Dying") {
+				if crit {
+					self.conditions.insert(String::from("Dying"), dying + 2);
+				} else {
+					self.conditions.insert(String::from("Dying"), dying + 1);
+				}
+
+				let doomed = self.conditions.get("Doomed").unwrap_or(&0_u8);
+				let wounded = self.conditions.get("Wounded").unwrap_or(&0_u8);
+
+				if self.conditions["Dying"] >= (4 - doomed - wounded) {
+					self.conditions.insert(String::from("Dying"), 0);
+					self.conditions.insert(String::from("Dead"), 1);
+					self.conditions.insert(String::from("Doomed"), 0);
+				}
+			} else if total_damage <= self.temp_hp {
+				self.temp_hp -= total_damage;
+			} else if total_damage < self.max_hp() + self.damage {
+				self.temp_hp = 0;
+				self.damage += total_damage;
 			} else {
-				self.conditions.insert(String::from("Dying"), dying + 1);
+				self.damage = self.max_hp();
+				self.conditions.insert(String::from("Dying"), 1);
 			}
-
-			let doomed = self.conditions.get("Doomed").unwrap_or(&0_u8);
-			let wounded = self.conditions.get("Wounded").unwrap_or(&0_u8);
-
-			if self.conditions["Dying"] >= (4 - doomed - wounded) {
-				self.conditions.insert(String::from("Dying"), 0);
-				self.conditions.insert(String::from("Dead"), 1);
-				self.conditions.insert(String::from("Doomed"), 0);
-			}
-		} else if total_damage <= self.temp_hp {
-			self.temp_hp -= total_damage;
-		} else if total_damage < self.max_hp() + self.damage {
-			self.temp_hp = 0;
-			self.damage += total_damage;
-		} else {
-			self.damage = self.max_hp();
-			self.conditions.insert(String::from("Dying"), 1);
 		}
 	}
 
