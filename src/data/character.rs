@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use saikoro::evaluation::SymbolTable;
 
 use crate::{
-	data::{Ancestry, Class, Heritage, Identifier},
+	data::{Ancestry, Class, DamageType, Heritage, Identifier},
 	stats::{Attribute, Attributes, Proficiency, Stat},
 };
 
@@ -27,8 +27,7 @@ pub struct Character {
 	damage: u16,
 	temp_hp: u16,
 
-	conditions: HashMap<String, u8>,
-	damage_types: HashMap<String, DamageScale>,
+	conditions: HashMap<Condition, u8>,
 
 	languages: Vec<String>,
 
@@ -64,40 +63,71 @@ impl Character {
 				* (self.class.hp as u16 + self.attributes.constitution.bonus as u16)
 	}
 
-	fn hurt(&mut self, dmg_amount: u16, dmg_type: String, crit: bool) {
-		let prescaler = match self.damage_types.get(&dmg_type) {
-			Some(DamageScale::Vulnerable) => 2.0,
-			Some(DamageScale::Resistant) => 0.5,
-			Some(DamageScale::Immune) => 0.0,
-			None => 1.0,
+	fn current_hp(&self) -> u16 {
+		self.max_hp().saturating_sub(self.damage)
+	}
+
+	fn hurt(&mut self, damage: u16, damage_type: DamageType, crit: bool) {
+		let damage = if self
+			.conditions
+			.contains_key(&Condition::Immunity(damage_type))
+		{
+			0
+		} else {
+			damage
+				+ self
+					.conditions
+					.get(&Condition::Weakness(damage_type))
+					.copied()
+					.unwrap_or_default() as u16
+				- self
+					.conditions
+					.get(&Condition::Resistance(damage_type))
+					.copied()
+					.unwrap_or_default() as u16
 		};
 
-		let total_damage = (prescaler * dmg_amount as f32).floor() as u16;
-		if total_damage > 0 {
-			if let Some(dying) = self.conditions.get("Dying") {
-				if crit {
-					self.conditions.insert(String::from("Dying"), dying + 2);
-				} else {
-					self.conditions.insert(String::from("Dying"), dying + 1);
-				}
+		if damage > 0 {
+			if let Some(dying) = self.conditions.get_mut(&Condition::Dying) {
+				*dying += 1 + u8::from(crit);
+				let dying = *dying; //lol. lmao, even -morgan 2025-06-09
 
-				let doomed = self.conditions.get("Doomed").unwrap_or(&0_u8);
-				let wounded = self.conditions.get("Wounded").unwrap_or(&0_u8);
+				let doomed = self
+					.conditions
+					.get(&Condition::Doomed)
+					.copied()
+					.unwrap_or_default();
 
-				if self.conditions["Dying"] >= (4 - doomed - wounded) {
-					self.conditions.insert(String::from("Dying"), 0);
-					self.conditions.insert(String::from("Dead"), 1);
-					self.conditions.insert(String::from("Doomed"), 0);
+				let wounded = self
+					.conditions
+					.get(&Condition::Wounded)
+					.copied()
+					.unwrap_or_default();
+
+				if dying >= u8::saturating_sub(4, doomed + wounded) {
+					self.conditions.insert(Condition::Dying, 0);
+					self.conditions.insert(Condition::Doomed, 0);
+					self.conditions.insert(Condition::Dead, 1);
 				}
-			} else if total_damage <= self.temp_hp {
-				self.temp_hp -= total_damage;
-			} else if total_damage < self.max_hp() + self.damage {
-				self.temp_hp = 0;
-				self.damage += total_damage;
 			} else {
-				self.damage = self.max_hp();
-				self.conditions.insert(String::from("Dying"), 1);
+				let total_remaining_hp = (self.current_hp() + self.temp_hp).saturating_sub(damage);
+
+				// condition is true iff damage <= temp hp (meaning subtraction is safe without
+				// underflow)
+				// -morgan 2025-06-09
+				if total_remaining_hp >= self.current_hp() {
+					self.temp_hp -= damage;
+				} else {
+					self.temp_hp = 0;
+					self.damage += damage;
+				}
+
+				if self.current_hp() == 0 {
+					self.conditions.insert(Condition::Dying, 1);
+				}
 			}
+
+			self.damage = damage.min(self.max_hp());
 		}
 	}
 
@@ -108,12 +138,9 @@ impl Character {
 			self.damage = 0;
 		}
 
-		if self.conditions.contains_key("Dying") {
-			self.conditions.insert(String::from("Dying"), 0);
-
-			let wounded = self.conditions.get("Wounded").copied().unwrap_or_default();
-
-			self.conditions.insert(String::from("Wounded"), wounded + 1);
+		if let Some(dying) = self.conditions.get_mut(&Condition::Dying) {
+			*dying = 0;
+			*self.conditions.entry(Condition::Wounded).or_default() += 1;
 		}
 	}
 }
@@ -134,14 +161,8 @@ pub struct Feat {
 	pub text: String,
 }
 
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct Condition {
-	variant: ConditionType,
-	level: u8,
-}
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub enum ConditionType {
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
+pub enum Condition {
 	Blinded,
 	Broken,
 	Clumsy,
@@ -149,6 +170,7 @@ pub enum ConditionType {
 	Confused,
 	Controlled,
 	Dazzled,
+	Dead,
 	Deafened,
 	Doomed,
 	Drained,
@@ -170,16 +192,15 @@ pub enum ConditionType {
 	Observed,
 	OffGuard,
 	Paralyzed,
-	Immunity(String),
-	Resistance(String),
-	Weakness(String),
-}
-
-#[derive(Debug, Clone, Copy, Eq, PartialEq)]
-pub enum DamageScale {
-	Vulnerable,
-	Resistant,
-	Immune,
+	Stupefied,
+	Unconscious,
+	Undetected,
+	Unfriendly,
+	Unnoticed,
+	Wounded,
+	Immunity(DamageType),
+	Resistance(DamageType),
+	Weakness(DamageType),
 }
 
 #[derive(Debug, Clone)]

@@ -1,11 +1,11 @@
-use crate::data::Identifier;
+use crate::data::{DamageType, Identifier};
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Weapon {
 	pub id: Identifier,
 	pub price: u16,
 	pub damage: String,
-	pub damage_type: String,
+	pub damage_type: DamageType,
 	pub range: u16,
 	pub bulk: u16,
 	pub hands: u8,
