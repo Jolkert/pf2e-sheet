@@ -1,11 +1,11 @@
 use std::collections::HashMap;
 
 use crate::{
-	fluff::{Feature, Identifier},
+	data::{Feature, Identifier},
 	stats::Attribute,
 };
 
-#[derive(Debug, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
 pub struct Ancestry {
 	pub id: Identifier,
 	pub size: Vec<SizeClass>,
@@ -19,7 +19,13 @@ pub struct Ancestry {
 	pub features: Vec<Feature>,
 }
 
-#[derive(Debug, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+pub struct Heritage {
+	id: Identifier,
+	features: Vec<Feature>,
+}
+
+#[derive(Debug, Clone, Copy, serde::Deserialize, serde::Serialize)]
 pub enum SizeClass {
 	Tiny,
 	Small,

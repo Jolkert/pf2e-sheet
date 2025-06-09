@@ -1,0 +1,44 @@
+use crate::data::Identifier;
+
+#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+pub struct Weapon {
+	pub id: Identifier,
+	pub price: u16,
+	pub damage: String,
+	pub damage_type: String,
+	pub range: u16,
+	pub bulk: u16,
+	pub hands: u8,
+	pub group: WeaponGroup,
+	pub category: WeaponCategory,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
+pub enum WeaponGroup {
+	Axe,
+	Bow,
+	Club,
+	Crossbow,
+	Dart,
+	Firearm,
+	Flail,
+	Knife,
+	Pick,
+	Polearm,
+	Sling,
+	Spear,
+	Sword,
+	Shield,
+	Hammer,
+	Brawling,
+	Bomb,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
+pub enum WeaponCategory {
+	Advanced,
+	Ammunition,
+	Martial,
+	Simple,
+	Unarmed,
+}
