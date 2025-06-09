@@ -6,14 +6,12 @@
 mod ancestries;
 mod character;
 mod classes;
-mod damage;
 mod features;
 mod weapons;
 
 pub use ancestries::*;
 pub use character::*;
 pub use classes::*;
-pub use damage::*;
 pub use features::*;
 pub use weapons::*;
 

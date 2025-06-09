@@ -1,4 +1,4 @@
-use crate::data::{DamageType, Identifier};
+use crate::data::Identifier;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Weapon {
@@ -41,4 +41,21 @@ pub enum WeaponCategory {
 	Martial,
 	Simple,
 	Unarmed,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
+pub enum DamageType {
+	Bludgeoning,
+	Piercing,
+	Slashing,
+	Acid,
+	Cold,
+	Electricity,
+	Fire,
+	Sonic,
+	Spirit,
+	Mental,
+	// TODO: is this right? -morgan 2025-06-08
+	Poison,
+	Bleed,
 }
