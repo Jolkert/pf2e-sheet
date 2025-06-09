@@ -17,10 +17,11 @@
         id: "Empathic Sense",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Perception,
-          circumstance: ["Sense Motive Within 15ft"],
+          stats: Some([Perception]),
+          proficiency: None,
+          circumstance: Some(["Sense Motive Within 15ft"]),
           bonus: +2,
         ),
       ],

@@ -17,10 +17,11 @@
         id: "Cryptomnesia",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Athletics, // FIX THIS, SHOULD BE ALL
-          circumstance: ["Untrained"],
+          stats: None,
+          proficiency: Some(Untrained),
+          circumstance: None,
           bonus: +1,
         ),
       ],

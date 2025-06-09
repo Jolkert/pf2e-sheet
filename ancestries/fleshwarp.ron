@@ -24,21 +24,12 @@
         id: "Unusual Anatomy",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-            stat: Fortitude,
-            circumstance: ["Disease", "Poison"],
-            bonus: +1,
-        ),
-        (
-            stat: Reflex,
-            circumstance: ["Disease", "Poison"],
-            bonus: +1,
-        ),
-        (
-            stat: Will,
-            circumstance: ["Disease", "Poison"],
-            bonus: +1,
+          stats: Some([Fortitude, Reflex, Will]),
+          proficiency: None,
+          circumstance: Some(["Disease", "Poison"]),
+          bonus: +1,
         ),
       ],
       flavor: "Your unorthodox body resists physical afflictions meant for other creatures. You gain a +1 circumstance bonus to saves against diseases and poisons."

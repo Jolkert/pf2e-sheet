@@ -24,10 +24,11 @@
         id: "Natural Climber",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Athletics,
-          circumstance: ["Climb"],
+          stats: Some([Athletics]),
+          proficiency: None,
+          circumstance: Some(["Climb"]),
           bonus: +2,
         ),
       ],

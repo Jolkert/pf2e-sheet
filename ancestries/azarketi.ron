@@ -24,10 +24,11 @@
         id: "Hydration",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Fortitude,
-          circumstance: ["24+ Hours Outside Water"],
+          stats: Some([Fortitude]),
+          proficiency: None,
+          circumstance: Some(["24+ Hours Outside Water"]),
           bonus: -1,
         ),
       ],

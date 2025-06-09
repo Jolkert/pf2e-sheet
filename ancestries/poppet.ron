@@ -24,20 +24,11 @@
         id: "Constructed",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Fortitude,
-          circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
-          bonus: +1,
-        ),
-        (
-          stat: Reflex,
-          circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
-          bonus: +1,
-        ),
-        (
-          stat: Will,
-          circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
+          stats: Some([Fortitude, Reflex, Will]),
+          proficiency: None,
+          circumstance: Some(["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"]),
           bonus: +1,
         ),
       ],

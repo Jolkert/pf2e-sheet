@@ -52,20 +52,11 @@
         id: "Disease and Poison Protection",
         traits: [],
       ),
-      bonuses: [
+      circumstances: [
         (
-          stat: Fortitude,
-          circumstance: ["Disease, Poison"],
-          bonus: +1,
-        ),
-        (
-          stat: Reflex,
-          circumstance: ["Disease, Poison"],
-          bonus: +1,
-        ),
-        (
-          stat: Will,
-          circumstance: ["Disease, Poison"],
+          stats: Some([Fortitude, Reflex, Will]),
+          proficiency: None,
+          circumstance: Some(["Disease", "Poison"]),
           bonus: +1,
         ),
       ],
