@@ -1,6 +1,6 @@
 use crate::data::Identifier;
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Weapon {
 	pub id: Identifier,
 	pub price: u16,
@@ -13,7 +13,7 @@ pub struct Weapon {
 	pub category: WeaponCategory,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum WeaponGroup {
 	Axe,
 	Bow,
@@ -34,7 +34,7 @@ pub enum WeaponGroup {
 	Bomb,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum WeaponCategory {
 	Advanced,
 	Ammunition,

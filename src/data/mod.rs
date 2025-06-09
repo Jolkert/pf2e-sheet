@@ -15,7 +15,7 @@ pub use classes::*;
 pub use features::*;
 pub use weapons::*;
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Identifier {
 	pub id: String,
 	pub traits: Vec<String>,

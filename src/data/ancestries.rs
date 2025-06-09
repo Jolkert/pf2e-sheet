@@ -5,7 +5,7 @@ use crate::{
 	stats::Attribute,
 };
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Ancestry {
 	pub id: Identifier,
 	pub size: Vec<SizeClass>,
@@ -18,13 +18,13 @@ pub struct Ancestry {
 	pub features: Vec<Feature>,
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Heritage {
 	id: Identifier,
 	features: Vec<Feature>,
 }
 
-#[derive(Debug, Clone, Copy, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, Copy, serde::Serialize, serde::Deserialize)]
 pub enum SizeClass {
 	Tiny,
 	Small,

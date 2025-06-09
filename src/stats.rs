@@ -13,7 +13,7 @@ impl Stat {
 	}
 }
 
-#[derive(Debug, Clone, Copy, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, Copy, serde::Serialize, serde::Deserialize)]
 pub struct AttributeValue {
 	pub bonus: i8,
 	pub partial: bool,
@@ -27,7 +27,7 @@ impl std::ops::Add<i8> for AttributeValue {
 	type Output = Self;
 }
 
-#[derive(Debug, Clone, serde::Deserialize, serde::Serialize)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Attributes {
 	pub strength: AttributeValue,
 	pub dexterity: AttributeValue,
@@ -37,7 +37,7 @@ pub struct Attributes {
 	pub charisma: AttributeValue,
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, serde::Deserialize, serde::Serialize)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum Attribute {
 	Free = 0xff,
 	Str = 0x01,
