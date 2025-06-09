@@ -1,4 +1,7 @@
-use crate::data::{Condition, Feat, Identifier, Weapon};
+use crate::{
+	data::{Condition, Feat, Identifier, Weapon},
+	stats::Stat,
+};
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub enum Feature {
@@ -29,7 +32,7 @@ pub struct Circumstance {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct CircumstanceBonus {
-	stat_name: String,
+	stat: Stat,
 	circumstance: Vec<String>,
 	bonus: i8,
 }

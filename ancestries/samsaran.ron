@@ -19,7 +19,7 @@
       ),
       bonuses: [
         (
-          stat_name: "All", // FIX THIS
+          stat: All, // FIX THIS
           circumstance: ["Untrained"],
           bonus: +1,
         ),

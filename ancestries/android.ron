@@ -26,17 +26,17 @@
       ),
       bonuses: [
         (
-          stat_name: "Fortitude",
+          stat: Fortitude,
           circumstance: ["Disease", "Poison", "Radiation"],
           bonus: +1,
         ),
         (
-          stat_name: "Reflex",
+          stat: Reflex,
           circumstance: ["Disease", "Poison", "Radiation"],
           bonus: +1,
         ),
         (
-          stat_name: "Will",
+          stat: Will,
           circumstance: ["Disease", "Poison", "Radiation"],
           bonus: +1,
         ),
@@ -50,17 +50,17 @@
       ),
       bonuses: [
         (
-          stat_name: "Diplomacy",
+          stat: Diplomacy,
           circumstance: [],
           bonus: -1,
         ),
         (
-          stat_name: "Performance",
+          stat: Performance,
           circumstance: [],
           bonus: -1,
         ),
         (
-          stat_name: "Perception",
+          stat: Perception,
           circumstance: ["Sense Motive"],
           bonus: -1,
         ),

@@ -1,14 +1,52 @@
-#[derive(Debug, Clone, Copy)]
-pub struct Stat {
-	pub attribute: Attribute,
-	pub proficiency: Proficiency,
+#[derive(Eq, Hash, PartialEq, Debug, Clone, Copy, serde::Deserialize, serde::Serialize)]
+pub enum Stat<S = String> {
+	Acrobatics,
+	Arcana,
+	Athletics,
+	Crafting,
+	Deception,
+	Diplomacy,
+	Fortitude,
+	Intimidation,
+	Lore(S),
+	Medicine,
+	Nature,
+	Occultism,
+	Perception,
+	Performance,
+	Reflex,
+	Religion,
+	Society,
+	Stealth,
+	Survival,
+	Thievery,
+	Will,
 }
 
 impl Stat {
-	pub fn new(attribute: Attribute, proficiency: Proficiency) -> Self {
-		Stat {
-			attribute,
-			proficiency,
+	pub fn attribute(&self) -> Attribute {
+		match self {
+			Stat::Acrobatics => Attribute::Dex,
+			Stat::Arcana => Attribute::Int,
+			Stat::Athletics => Attribute::Str,
+			Stat::Crafting => Attribute::Int,
+			Stat::Deception => Attribute::Cha,
+			Stat::Diplomacy => Attribute::Cha,
+			Stat::Fortitude => Attribute::Con,
+			Stat::Intimidation => Attribute::Cha,
+			Stat::Lore(_) => Attribute::Int,
+			Stat::Medicine => Attribute::Wis,
+			Stat::Nature => Attribute::Wis,
+			Stat::Occultism => Attribute::Int,
+			Stat::Perception => Attribute::Wis,
+			Stat::Performance => Attribute::Cha,
+			Stat::Reflex => Attribute::Dex,
+			Stat::Religion => Attribute::Wis,
+			Stat::Society => Attribute::Int,
+			Stat::Stealth => Attribute::Dex,
+			Stat::Survival => Attribute::Wis,
+			Stat::Thievery => Attribute::Dex,
+			Stat::Will => Attribute::Wis,
 		}
 	}
 }

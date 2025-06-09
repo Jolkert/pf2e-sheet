@@ -26,7 +26,7 @@
       ),
       bonuses: [
         (
-          stat_name: "Athletics",
+          stat: Athletics,
           circumstance: ["Climb"],
           bonus: +2,
         ),

@@ -19,7 +19,7 @@
       ),
       bonuses: [
         (
-          stat_name: "Perception",
+          stat: Perception,
           circumstance: ["Sense Motive Within 15ft"],
           bonus: +2,
         ),

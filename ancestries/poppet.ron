@@ -26,17 +26,17 @@
       ),
       bonuses: [
         (
-          stat_name: "Fortitude",
+          stat: Fortitude,
           circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
           bonus: +1,
         ),
         (
-          stat_name: "Reflex",
+          stat: Reflex,
           circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
           bonus: +1,
         ),
         (
-          stat_name: "Will",
+          stat: Will,
           circumstance: ["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"],
           bonus: +1,
         ),

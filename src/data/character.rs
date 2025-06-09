@@ -20,7 +20,7 @@ pub struct Character {
 
 	attributes: Attributes,
 
-	stats: HashMap<String, Stat>,
+	stats: HashMap<Stat, Proficiency>,
 
 	roll_modifiers: SymbolTable,
 
@@ -39,22 +39,23 @@ pub struct Character {
 }
 
 impl Character {
-	fn insert_stat(&mut self, name: &str, stat_val: Stat) {
-		let mut roll_str = Attribute::to_string(stat_val.attribute).unwrap();
+	fn insert_stat(&mut self, stat: Stat, proficiency: Proficiency) {
+		let stat_name = Attribute::to_string(stat.attribute()).unwrap();
+		let mut roll_str = stat_name.clone();
 		roll_str.insert(0, '{');
 		roll_str.push('}');
 
-		let proficiency_bonus = stat_val.proficiency.bonus();
+		let proficiency_bonus = proficiency.bonus();
 
 		if proficiency_bonus > 0 {
 			roll_str.push_str(&format!(" + {{level}} + {proficiency_bonus}"));
 		}
 
-		self.stats.insert(name.to_string(), stat_val);
+		self.stats.insert(stat, proficiency);
 
 		// TODO: we should probably properly handle this error somehow
 		// -morgan 2025-06-08
-		let _ = self.roll_modifiers.insert(name, &roll_str);
+		let _ = self.roll_modifiers.insert(&stat_name, &roll_str);
 	}
 
 	fn max_hp(&self) -> u16 {

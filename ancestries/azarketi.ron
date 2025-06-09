@@ -26,7 +26,7 @@
       ),
       bonuses: [
         (
-          stat_name: "Fortitude",
+          stat: Fortitude,
           circumstance: ["24+ Hours Outside Water"],
           bonus: -1,
         ),
