@@ -1,0 +1,30 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Surki",
+    traits: ["Rare", "Humanoid", "Surki"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Con, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Surki"],
+  rec_langs: ["Elven", "Fey", "Sakvroth"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Darkvision",
+        traits: [],
+      ),
+      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Magiphage",
+        traits: [],
+      ),
+      flavor: "The various nodes throughout your body draw in latent magic from the world around you. You don't need to eat or drink unless you're in an especially magic-poor environment (such as the Mana Wastes). Choose what tradition of magic you most consumed as a larva; this type of magic has become so ingrained in your body that it changes the tradition of all surki spells and magical actions to that tradition.",
+    ),
+  ],
+)

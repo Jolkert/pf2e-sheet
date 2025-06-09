@@ -1,0 +1,26 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Yaoguai",
+    traits: ["Rare", "Humanoid", "Yaoguai"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Cha, Con, Free],
+  at_flaw: [Int],
+  base_langs: ["Common"],
+  rec_langs: ["Aklo", "Draconic", "Fey", "Kitsune", "Nagaji", "Sakvroth", "Tengu", "Ysoki"],
+  features: [
+    Action(
+      id: Identifier(
+        id: "Change Shape",
+        traits: ["Concentrate", "Occult", "Polymorph", "Yaoguai"],
+      ),
+      actions: 1,
+      reaction: false,
+      trigger: "",
+      flavor: "You transform to or from your true yaoguai form into a humanoid alternate form, which is a common Medium humanoid ancestry prevalent where you were born (typically human). This form is the same apparent age and body type as your yaoguai form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You can remain in your humanoid form indefinitely, but you revert to your yaoguai form after 1 hour of unconsciousness or 1 minute after death.",
+    ),
+  ],
+)

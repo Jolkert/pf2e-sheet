@@ -11,7 +11,6 @@
   at_flaw: [Int],
   base_langs: ["Common", "Necril"],
   rec_langs: ["Aklo", "Dwarven", "Elven", "Infernal", "Orcish", "Undercommon"],
-  bonus_langs: 0,
   features: [
     Flavor( // EXPAND UPON THIS
       id: Identifier(
@@ -19,6 +18,65 @@
         traits: [],
       ),
       flavor: "You have basic undead benefits. For your undead hunger, you don't eat flesh like ghouls or drink blood like vampires, but you do collect bones you can use to help yourself mend.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "A creature with low-light vision can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Negative Healing",
+        traits: [],
+      ),
+      flavor: "You are damaged by positive damage and aren't healed by positive healing effects. You don't take negative damage and are healed by negative effects that heal undead.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Negative Survival",
+        traits: [],
+      ),
+      flavor: "Unlike normal undead, you aren't destroyed when reduced to 0 Hit Points. Instead, powerful negative energy attempts to keep you from being destroyed even in dire straits. You are knocked out and begin dying when reduced to 0 Hit Points. Because you're undead, many methods of bringing someone back from dying, such as stabilize, don't benefit you. When you would die, you're destroyed rather than dead, just like other undead.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Immunity to Death Effects",
+        traits: [],
+      ),
+      flavor: "You're immune to death effects. This keeps you from being automatically killed or from having your dying value automatically increase, but it doesn't make you immune to other parts of the spell or effect. For example, you can still take mental damage and become frightened by a phantasmal killer, you just don't instantly die from it.",
+    ),
+    Circumstance(
+      id: Identifier(
+        id: "Disease and Poison Protection",
+        traits: [],
+      ),
+      bonuses: [
+        (
+          stat_name: "Fortitude",
+          circumstance: ["Disease, Poison"],
+          bonus: +1,
+        ),
+        (
+          stat_name: "Reflex",
+          circumstance: ["Disease, Poison"],
+          bonus: +1,
+        ),
+        (
+          stat_name: "Will",
+          circumstance: ["Disease, Poison"],
+          bonus: +1,
+        ),
+      ],
+      flavor: "You gain a +1 circumstance bonus to saving throws (or any other defense) against disease and poison.",
+    ),
+    Flavor(
+      id: Identifier(
+        id: "Undead Hunger",
+        traits: [],
+      ),
+      flavor: "While you don't eat or drink the same food as humanoids do, you usually have thirsts and hungers related to your undead state, such as a ghoul's hunger for humanoid flesh, a zombie's craving for brains, and a vampire's desire for blood. Additionally, while you don't sleep, you enter a state of quiescence for at least 4 hours a day to recuperate, which lets your undead flesh reknit and recover naturally. Many undead choose to rest when the sun is at its highest.",
     ),
   ],
 )

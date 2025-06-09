@@ -11,7 +11,7 @@
   at_flaw: [],
   base_langs: ["Common"],
   rec_langs: [],
-  bonus_langs: 1,
   features: [
+    Language,
   ],
 )

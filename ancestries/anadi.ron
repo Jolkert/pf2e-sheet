@@ -11,7 +11,6 @@
   at_flaw: [Con],
   base_langs: ["Anadi", "Mwangi"],
   rec_langs: ["Draconic", "Elven", "Gnoll", "Iruxi", "Orcish", "Sylvan"],
-  bonus_langs: 0,
   features: [
     Action(
       id: Identifier(

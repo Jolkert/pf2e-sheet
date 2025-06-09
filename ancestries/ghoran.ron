@@ -11,7 +11,6 @@
   at_flaw: [],
   base_langs: ["Common", "Sylvan"],
   rec_langs: ["Aklo", "Draconic", "Elven", "Gnomish", "Jotun"],
-  bonus_langs: 0,
   features: [
     Flavor(
       id: Identifier(

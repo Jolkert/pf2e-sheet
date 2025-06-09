@@ -1,0 +1,23 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Yaksha",
+    traits: ["Rare", "Spirit", "Yaksha"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Con, Cha, Free],
+  at_flaw: [Int],
+  base_langs: ["Common", "Fey", "Yaksha"],
+  rec_langs: ["Empyrean", "Diabolic", "Nagaji", "Tang", "Tengu", "Vudrani"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+    ),
+  ],
+)

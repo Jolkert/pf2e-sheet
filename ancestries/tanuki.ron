@@ -1,0 +1,26 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Tanuki",
+    traits: ["Uncommon", "Humanoid", "Tanuki"],
+  ),
+  size: [Small],
+  speed: {"Walk": 25},
+  base_hp: 10,
+  at_boost: [Con, Cha, Free],
+  at_flaw: [Wis],
+  base_langs: ["Common", "Tanuki"],
+  rec_langs: ["Elven", "Fey", "Gnomish", "Goblin", "Kitsune", "Tengu"],
+  features: [
+    Action(
+      id: Identifier(
+        id: "Change Shape",
+        traits: ["Concentrate", "Polymorph", "Primal", "Tanuki"],
+      ),
+      actions: 1,
+      reaction: false,
+      trigger: "",
+      flavor: "You can transform into a mundane raccoon dog, using the statistics of pest form. This is a specific raccoon dog form that's the same age and body type as your true form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You lose any unarmed Strikes you gained from a tanuki heritage or ancestry feat in this form. You can remain in your raccoon dog form indefinitely, and you can shift back to your tanuki form by using this action again.",
+    ),
+  ],
+)

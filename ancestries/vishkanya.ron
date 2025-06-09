@@ -1,0 +1,34 @@
+#![enable(unwrap_variant_newtypes)]
+(
+  id: Identifier(
+    id: "Vishkanya",
+    traits: ["Rare", "Humanoid", "Vishkanya"],
+  ),
+  size: [Medium],
+  speed: {"Walk": 25},
+  base_hp: 8,
+  at_boost: [Dex, Free],
+  at_flaw: [],
+  base_langs: ["Common", "Vishkanya"],
+  rec_langs: ["Aklo", "Aquan", "Draconic", "Elven", "Goblin", "Undercommon", "Vanaran"],
+  features: [
+    Flavor(
+      id: Identifier(
+        id: "Low-Light Vision",
+        traits: [],
+      ),
+      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+    ),
+    Action(
+      id: Identifier(
+        id: "Envenom",
+        traits: [],
+      ),
+      actions: 1,
+      reaction: false,
+      trigger: "",
+      flavor: "Through use of either saliva or blood, you use your innate toxins to apply vishkanyan venom to your weapon or a piece of ammunition. To use your blood, you must be injured, or you can deal 1 slashing damage to yourself as part of the action. The vishkanyan venom remains potent until the end of your next turn, or until you expend it as normal for an injury poison by either hitting a target or critically failing an attack roll.
+Minor Vishkanyan Venom (injury, poison) Saving Throw Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage (1 round); Stage 2 1d4 poison damage (1 round); Stage 3 1d4 poison damage (1 round)",
+    ),
+  ],
+)
