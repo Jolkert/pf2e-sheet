@@ -26,7 +26,7 @@
       ),
       price: 0,
       damage: "1d6",
-      damage_type: "Piercing",
+      damage_type: Piercing,
       range: 5,
       bulk: 0,
       hands: 1,

@@ -26,7 +26,7 @@
       ),
       price: 0,
       damage: "1d4",
-      damage_type: "Slashing",
+      damage_type: Slashing,
       range: 5,
       bulk: 0,
       hands: 1,

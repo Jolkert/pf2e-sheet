@@ -10,7 +10,7 @@ pub enum Feature {
 	Action(Action),
 	Circumstance(Circumstance),
 	Feat(Feat),
-	Condition(Condition),
+	Condition(Condition, u8),
 	Language,
 }
 

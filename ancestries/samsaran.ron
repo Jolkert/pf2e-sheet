@@ -19,11 +19,11 @@
       ),
       bonuses: [
         (
-          stat: All, // FIX THIS
+          stat: Athletics, // FIX THIS, SHOULD BE ALL
           circumstance: ["Untrained"],
           bonus: +1,
         ),
-      ]
+      ],
       flavor: "You retain bits of knowledge from your former lives. You gain a +1 circumstance bonus to untrained skill checks.",
     ),
     Flavor(
