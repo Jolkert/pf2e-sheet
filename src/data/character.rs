@@ -40,7 +40,7 @@ pub struct Character {
 
 impl Character {
 	fn insert_stat(&mut self, stat: Stat, proficiency: Proficiency) {
-		let stat_name = Attribute::to_string(stat.attribute()).unwrap();
+		let stat_name = stat.attribute().to_string();
 		let mut roll_str = stat_name.clone();
 		roll_str.insert(0, '{');
 		roll_str.push('}');

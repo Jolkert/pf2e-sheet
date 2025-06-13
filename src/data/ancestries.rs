@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use crate::{
 	data::{Feature, Identifier},
-	stats::Attribute,
+	stats::AttributeSet,
 };
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -11,8 +11,8 @@ pub struct Ancestry {
 	pub size: Vec<SizeClass>,
 	pub speed: HashMap<String, u8>,
 	pub base_hp: u8,
-	pub at_boost: Vec<Attribute>,
-	pub at_flaw: Vec<Attribute>,
+	pub at_boost: AttributeSet,
+	pub at_flaw: AttributeSet,
 	pub base_langs: Vec<String>,
 	pub rec_langs: Vec<String>,
 	pub features: Vec<Feature>,
