@@ -49,7 +49,7 @@ impl Stat {
 			| Stat::Lore(_)
 			| Stat::Occultism
 			| Stat::Society => Attribute::Int,
-			
+
 			Stat::Medicine
 			| Stat::Nature
 			| Stat::Perception
@@ -60,7 +60,7 @@ impl Stat {
 			Stat::Deception
 			| Stat::Diplomacy
 			| Stat::Intimidation
-			| Stat::Performance => Attribute::Cha
+			| Stat::Performance => Attribute::Cha,
 		}
 	}
 }
