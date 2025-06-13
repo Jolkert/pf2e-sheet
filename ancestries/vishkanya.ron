@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Vishkanya",
     traits: ["Rare", "Humanoid", "Vishkanya"],
+    flavor: Some("Vishkanyas are ophidian humanoids who carry potent venom within their blood and saliva. Largely misunderstood due to old tales of their toxicity and natural finesse, vishkanyas work to grow into more than just what stories paint them to be."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,22 +15,21 @@
   rec_langs: ["Aklo", "Aquan", "Draconic", "Elven", "Goblin", "Undercommon", "Vanaran"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Action(
-      id: Identifier(
+      meta: Meta(
         id: "Envenom",
         traits: [],
+        flavor: Some("Through use of either saliva or blood, you use your innate toxins to apply vishkanyan venom to your weapon or a piece of ammunition. To use your blood, you must be injured, or you can deal 1 slashing damage to yourself as part of the action. The vishkanyan venom remains potent until the end of your next turn, or until you expend it as normal for an injury poison by either hitting a target or critically failing an attack roll.
+Minor Vishkanyan Venom (injury, poison) Saving Throw Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage (1 round); Stage 2 1d4 poison damage (1 round); Stage 3 1d4 poison damage (1 round)"),
+        legacy: false,
       ),
       actions: 1,
-      reaction: false,
-      trigger: "",
-      flavor: "Through use of either saliva or blood, you use your innate toxins to apply vishkanyan venom to your weapon or a piece of ammunition. To use your blood, you must be injured, or you can deal 1 slashing damage to yourself as part of the action. The vishkanyan venom remains potent until the end of your next turn, or until you expend it as normal for an injury poison by either hitting a target or critically failing an attack roll.
-Minor Vishkanyan Venom (injury, poison) Saving Throw Fortitude; Maximum Duration 6 rounds; Stage 1 1d4 poison damage (1 round); Stage 2 1d4 poison damage (1 round); Stage 3 1d4 poison damage (1 round)",
+      reaction_trigger: None,
     ),
   ],
 )

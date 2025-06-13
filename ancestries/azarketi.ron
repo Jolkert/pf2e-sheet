@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Azarketi",
     traits: ["Uncommon", "Amphibious", "Azarketi", "Humanoid"],
+    flavor: Some("Azarketis, inheritors of a shattered empire's legacy, hold their proud traditions close but still surface to interact with the rest of the world."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 20, "Swim": 30},
@@ -13,26 +15,26 @@
   rec_langs: ["Aklo", "Aquan", "Azlanti", "Draconic", "Elven", "Undercommon"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Hydration",
         traits: [],
+        flavor: Some("While you are an amphibious being equally as capable on land as in the water, your body requires you to return to aquatic environments at least once in a 24-hour period. You must submerge in water in order to rehydrate your water-acclimated skin. If you fail to do this, your skin begins to crack and your gills become painful. After the first 24 hours outside of water, you take a –1 status penalty to Fortitude saves. After 48 hours, you struggle to breathe air and begin to suffocate until returned to water."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Fortitude]),
           proficiency: None,
           circumstance: Some(["24+ Hours Outside Water"]),
-          bonus: -1,
+          bonus: "-1",
         ),
       ],
-      flavor: "While you are an amphibious being equally as capable on land as in the water, your body requires you to return to aquatic environments at least once in a 24-hour period. You must submerge in water in order to rehydrate your water-acclimated skin. If you fail to do this, your skin begins to crack and your gills become painful. After the first 24 hours outside of water, you take a –1 status penalty to Fortitude saves. After 48 hours, you struggle to breathe air and begin to suffocate until returned to water.",
     ),
   ],
 )

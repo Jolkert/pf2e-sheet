@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Awakened Animal (Medium)",
     traits: ["Rare", "Awakened Animal", "Beast"],
+    flavor: Some("Awakened animals were once normal creatures before they obtained sapience that gave them one paw in nature and the other in the world of cities and society. Almost any animal can be awakened, allowing for a wide variety of characters."),
+    legacy: false,
   ),
   size: [Large],
   speed: {}, // this is determined fully by heritage
@@ -13,18 +15,16 @@
   rec_langs: [],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Awakened Form",
-        traits: [],
-      ),
-      flavor: "Awakening altered your form, enabling you to speak verbally and stand on two legs. You can wear, hold, wield, and use items. Which limbs you use to manipulate items and how many are determined by you and your GM, but for the rules you function like a humanoid with two hands.",
+      id: "Awakened Form",
+      traits: [],
+      flavor: Some("Awakening altered your form, enabling you to speak verbally and stand on two legs. You can wear, hold, wield, and use items. Which limbs you use to manipulate items and how many are determined by you and your GM, but for the rules you function like a humanoid with two hands."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Awakened Mind",
-        traits: [],
-      ),
-      flavor: "Awakening altered your mind. You are no longer an animal, but you can still ask questions of, receive answers from, and use the Diplomacy skill with animals of your kind. By remembering your instincts, you can allow yourself to be affected by spells and other effects as though you were an animal.",
+      id: "Awakened Mind",
+      traits: [],
+      flavor: Some("Awakening altered your mind. You are no longer an animal, but you can still ask questions of, receive answers from, and use the Diplomacy skill with animals of your kind. By remembering your instincts, you can allow yourself to be affected by spells and other effects as though you were an animal."),
+      legacy: false,
     ),
   ],
 )

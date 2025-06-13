@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Fetchling",
     traits: ["Uncommon", "Fetchling", "Humanoid"],
+    flavor: Some("Once human and now something apart, fetchlings display the Shadow Plane's ancient influence through monochrome complexions, glowing eyes, and the casting of supernatural shadows."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,11 +15,10 @@
   rec_langs: ["Aklo", "Draconic", "D'ziriak", "Necril", "Undercommon"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light."),
+      legacy: false,
     ),
   ],
 )

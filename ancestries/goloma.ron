@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Goloma",
     traits: ["Rare", "Goloma", "Humanoid"],
+    flavor: Some("Golomas fear most other people and deliberately use their unusual biology to frighten off those they consider to be dangerous predators. Rarely seen and poorly understood, golomas' many-eyed and wooden faced visages instill terror in most they meet."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 30},
@@ -13,11 +15,10 @@
   rec_langs: ["Abyssal", "Aklo", "Draconic", "Elven", "Halfling", "Necril", "Orcish", "Sylvan"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Eyes in Back",
-        traits: [],
-      ),
-      flavor: "You have eyes that point in several different directions and instinctively notice movement in the peripheries of your vision. When you use the Seek basic action, you can look for creatures in two areas instead of one. If precision is necessary, you can select two 30-foot cones or 15-foot bursts within line of sight instead of one.",
+      id: "Eyes in Back",
+      traits: [],
+      flavor: Some("You have eyes that point in several different directions and instinctively notice movement in the peripheries of your vision. When you use the Seek basic action, you can look for creatures in two areas instead of one. If precision is necessary, you can select two 30-foot cones or 15-foot bursts within line of sight instead of one."),
+      legacy: false,
     ),
   ],
 )

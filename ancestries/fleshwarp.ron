@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Fleshwarp",
     traits: ["Rare", "Aberration", "Fleshwarp", "Humanoid"],
+    flavor: Some("Fleshwarps are people whose forms were created or radically transformed by magic, alchemy, or unnatural energies. Their unorthodox appearance can make it difficult for them to find a place for themselves in the world."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,26 +15,26 @@
   rec_langs: ["Aklo", "Draconic", "Dwarven", "Elven", "Goblin", "Undercommon"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Unusual Anatomy",
         traits: [],
+        flavor: Some("Your unorthodox body resists physical afflictions meant for other creatures. You gain a +1 circumstance bonus to saves against diseases and poisons."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Fortitude, Reflex, Will]),
           proficiency: None,
           circumstance: Some(["Disease", "Poison"]),
-          bonus: +1,
+          bonus: "+1",
         ),
       ],
-      flavor: "Your unorthodox body resists physical afflictions meant for other creatures. You gain a +1 circumstance bonus to saves against diseases and poisons."
     ),
   ],
 )

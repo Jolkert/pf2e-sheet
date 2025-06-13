@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Wayang",
     traits: ["Uncommon", "Humanoid", "Shadow", "Wayang"],
+    flavor: Some("Small people native to the Netherworld. Immigrated to Golarion after Earthfall."),
+    legacy: false,
   ),
   size: [Small],
   speed: {"Walk": 25},
@@ -13,11 +15,10 @@
   rec_langs: ["D'ziriak", "Diabolic", "Minatan", "Nagaji", "Thalassic", "Vudrani", "Yaksha"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light. ",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light."),
+      legacy: false,
     ),
   ],
 )

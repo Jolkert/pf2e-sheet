@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Anadi",
     traits: ["Rare", "Anadi", "Humanoid"],
+    flavor: Some("Anadi people are reclusive, sapient spiders who hail from the jungles of southern Garund. Though they act in many ways like natural-born shapeshifters, their twin forms actually stem from carefully developed magic."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,19 +15,21 @@
   rec_langs: ["Draconic", "Elven", "Gnoll", "Iruxi", "Orcish", "Sylvan"],
   features: [
     Action(
-      id: Identifier(
+      meta: Meta(
         id: "Change Shape",
         traits: ["Anadi", "Arcane", "Concentrate", "Polymorph", "Transmutation"],
+        flavor: Some("You change into your human or spider shape. Each shape has a specific, persistent appearance. In your human shape, you can't use unarmed attacks granted by your ancestry. You aren't flat-footed when climbing in your spider shape. However, in your spider shape you can't use weapons, shields, or other held items of any sort, and you are limited in what actions you can take that have the manipulate trait. The only manipulate actions you can take are to Cast a Spell with somatic components, weave silk or webbing, or simple Interact actions such as opening an unlocked door. Your spider legs can't perform actions that require fingers or significant manual dexterity, including any action that would require a check to accomplish. The GM might determine other manipulate actions are appropriate for your spider legs."),
+        legacy: false,
       ),
       actions: 1,
-      reaction: false,
-      trigger: "",
-      flavor: "You change into your human or spider shape. Each shape has a specific, persistent appearance. In your human shape, you can't use unarmed attacks granted by your ancestry. You aren't flat-footed when climbing in your spider shape. However, in your spider shape you can't use weapons, shields, or other held items of any sort, and you are limited in what actions you can take that have the manipulate trait. The only manipulate actions you can take are to Cast a Spell with somatic components, weave silk or webbing, or simple Interact actions such as opening an unlocked door. Your spider legs can't perform actions that require fingers or significant manual dexterity, including any action that would require a check to accomplish. The GM might determine other manipulate actions are appropriate for your spider legs.",
+      reaction_trigger: None,
     ),
     Attack(
-      id: Identifier(
+      meta: Meta(
         id: "Fangs",
         traits: ["Finesse", "Unarmed"],
+        flavor: Some("You were born with a natural means for hunting and self-defense. You gain a fangs unarmed attack that deals 1d6 piercing damage. Your fangs are in the brawling group and have the finesse and unarmed traits."),
+        legacy: false,
       ),
       price: 0,
       damage: "1d6",

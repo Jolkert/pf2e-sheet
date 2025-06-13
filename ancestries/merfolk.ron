@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Merfolk",
     traits: ["Uncommon", "Amphibious", "Humanoid", "Merfolk"],
+    flavor: Some("Merfolk are a half-human, half-fish aquatic people who live in every ocean and sea of Golarion. Merfolk use magic as other peoples might use common tools, especially to control water, create omens, and in their beguiling songs."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 5, "Swim": 25},
@@ -13,33 +15,32 @@
   rec_langs: ["Aklo", "Azlanti", "Draconic", "Elven", "Fey"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Aquatic Grace",
-        traits: [],
-      ),
-      flavor: "When you roll a success on a saving throw against a water effect, you get a critical success instead.",
+      id: "Aquatic Grace",
+      traits: [],
+      flavor: Some("When you roll a success on a saving throw against a water effect, you get a critical success instead."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Hydration",
         traits: [],
+        flavor: Some("Your body requires you to return to aquatic environments at least once in a 24-hour period. After the first 24 hours outside of water, you take a –1 status penalty to Fortitude saves. After 48 hours, you struggle to breathe air and begin to suffocate until returned to water."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Fortitude]),
           proficiency: None,
           circumstance: Some(["24+ Hours Outside Water"]),
-          bonus: -1,
+          bonus: "-1",
         ),
       ],
-      flavor: "Your body requires you to return to aquatic environments at least once in a 24-hour period. After the first 24 hours outside of water, you take a –1 status penalty to Fortitude saves. After 48 hours, you struggle to breathe air and begin to suffocate until returned to water.",
     ),
   ],
 )

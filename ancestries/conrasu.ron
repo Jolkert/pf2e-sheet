@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Conrasu",
     traits: ["Rare", "Aeon", "Conrasu", "Plant"],
+    flavor: Some("Conrasus are shards of cosmic force given consciousness who construct intricate exoskeletons to interface with the mortal world. Both an integral part of the underlying processes of the universe and strangely set apart, conrasus look to aeons to understand their existence."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,11 +15,10 @@
   rec_langs: ["Celestial", "Elven", "Iruxi", "Sylvan", "Terran", "Utopian"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Sunlight Healing",
-        traits: [],
-      ),
-      flavor: "A conrasu can enter a meditative, healing state as a 10-minute activity when exposed to direct sunlight, in which case they recover 1d8 Hit Points. At 3rd level, and every 2 levels thereafter, this healing increases by 1d8. Once a conrasu has recovered Hit Points in this way, they are temporarily immune to further uses of Sunlight Healing for 1 day",
+      id: "Sunlight Healing",
+      traits: [],
+      flavor: Some("A conrasu can enter a meditative, healing state as a 10-minute activity when exposed to direct sunlight, in which case they recover 1d8 Hit Points. At 3rd level, and every 2 levels thereafter, this healing increases by 1d8. Once a conrasu has recovered Hit Points in this way, they are temporarily immune to further uses of Sunlight Healing for 1 day"),
+      legacy: false,
     ),
   ],
 )

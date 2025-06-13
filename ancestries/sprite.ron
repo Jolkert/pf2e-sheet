@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Sprite",
     traits: ["Rare", "Fey", "Sprite"],
+    flavor: Some("Sprites are diminutive, whimsical, and exuberant creatures from the fey realm known as the First World. They love playing pranks, exploring new things, and embracing everything to do with magic."),
+    legacy: true,
   ),
   size: [Tiny],
   speed: {"Walk": 20},
@@ -13,18 +15,16 @@
   rec_langs: ["Celestial", "Draconic", "Elven", "Gnomish", "Goblin", "Jotun"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Magical Strikes",
-        traits: [],
-      ),
-      flavor: "Your inherent magic pervades your entire being. All your Strikes are magical, whether with unarmed attacks or weapons.",
+      id: "Magical Strikes",
+      traits: [],
+      flavor: Some("Your inherent magic pervades your entire being. All your Strikes are magical, whether with unarmed attacks or weapons."),
+      legacy: false,
     ),
   ],
 )

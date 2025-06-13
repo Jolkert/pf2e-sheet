@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Centaur",
     traits: ["Uncommon", "Beast", "Centaur", "Humanoid"],
+    flavor: Some("Centaurs are half-human, half-horse nomads who range wild and free across their ancestral lands. They're survivalists with a long history of teaching and instruction who stand firm in the face of danger using their skill at archery, herbalism, and magic."),
+    legacy: false,
   ),
   size: [Large],
   speed: {"Walk": 30},
@@ -13,25 +15,22 @@
   rec_langs: ["Arboreal", "Cyclops", "Dwarven", "Elven", "Gnomish", "Halfling", "Jotun"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Mount",
-        traits: [],
-      ),
-      flavor: "Your equine body is well suited for carrying trusted allies. A PC can ride you if they are one size category smaller than you (Medium size, for most centaurs), rather than needing to be two size categories smaller.",
+      id: "Mount",
+      traits: [],
+      flavor: Some("Your equine body is well suited for carrying trusted allies. A PC can ride you if they are one size category smaller than you (Medium size, for most centaurs), rather than needing to be two size categories smaller."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Robust",
-        traits: [],
-      ),
-      flavor: "You increase your maximum and encumbered Bulk limits by 2."
+      id: "Robust",
+      traits: [],
+      flavor: Some("You increase your maximum and encumbered Bulk limits by 2."),
+      legacy: false,
     ),
   ],
 )

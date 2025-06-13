@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Athamaru",
     traits: ["Uncommon", "Amphibious", "Athamaru", "Humanoid"],
+    flavor: Some("Athamarus are fish-like humanoids who form tight-knit communities underseas, with villages of siblings led by a common matriarch. Athamarus engage in subsistence farming of seaweed, train eels to serve as mounts, and create elaborate works of coral art."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 20, "Swim": 25},
@@ -13,11 +15,10 @@
   rec_langs: ["Alghollthu", "Azlanti", "Fey", "Tien"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
   ],
 )

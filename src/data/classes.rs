@@ -1,11 +1,11 @@
 use crate::{
-	data::{Identifier, Proficiencies},
+	data::{Meta, Proficiencies},
 	stats::{Attribute, Proficiency, Stat},
 };
 
 #[derive(Debug, Clone)]
 pub struct Class {
-	pub id: Identifier,
+	pub meta: Meta,
 	pub key_attribute: Attribute,
 	pub hp: u8,
 	pub skills: Vec<(Stat, Proficiency)>,

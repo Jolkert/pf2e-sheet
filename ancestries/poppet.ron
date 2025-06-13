@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Poppet",
     traits: ["Rare", "Construct", "Humanoid", "Poppet"],
+    flavor: Some("Poppets are small, basic constructs that typically help their owners with simple tasks. Occasionally, poppets gain sapience, independence, and a spark of life. Elevated beyond mere helpers or playthings, these poppets are free to chart their own destinies."),
+    legacy: true,
   ),
   size: [Small],
   speed: {"Walk": 25},
@@ -13,27 +15,27 @@
   rec_langs: ["Draconic", "Dwarven", "Elven", "Gnomish", "Goblin", "Sylvan"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Constructed",
         traits: [],
+        flavor: Some("The materials of your body resist ailments that assail the flesh. You gain a +1 circumstance bonus to saving throws against death effects, disease, and poison as well as to saving throws against effects that would give you the drained, paralyzed, or sickened conditions. Your spark of life means that you're a living creature, and you can be healed by positive energy and harmed by negative energy as normal."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Fortitude, Reflex, Will]),
           proficiency: None,
           circumstance: Some(["Death", "Disease", "Poison", "Drained", "Paralyzed", "Sickened"]),
-          bonus: +1,
+          bonus: "+1",
         ),
       ],
-      flavor: "The materials of your body resist ailments that assail the flesh. You gain a +1 circumstance bonus to saving throws against death effects, disease, and poison as well as to saving throws against effects that would give you the drained, paralyzed, or sickened conditions. Your spark of life means that you're a living creature, and you can be healed by positive energy and harmed by negative energy as normal."
     ),
-    Condition(Weakness(Fire), 1),
+    Condition(Weakness(Fire), "max(trunc({level}/3), 1)"),
   ],
 )

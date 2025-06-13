@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Minotaur",
     traits: ["Uncommon", "Beast", "Humanoid", "Minotaur"],
+    flavor: Some("Minotaurs are horned, bovine humanoids who originate from an ancient divine curse. Minotaurs are large, strong, and masters of crafts and puzzles, inclinations that lead many minotaurs to explore architecture and stonework. Minotaurs are most at home in labyrinths, whether natural, artificial, or psychological."),
+    legacy: false,
   ),
   size: [Large],
   speed: {"Walk": 25},
@@ -13,16 +15,17 @@
   rec_langs: ["Cyclops", "Dwarven", "Fey", "Petran", "Sakvroth"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+      legacy: false,
     ),
     Attack(
-      id: Identifier(
+      meta: Meta(
         id: "Horns",
         traits: ["Unarmed"],
+        flavor: Some("Your sharp horns are as deadly as spears. You have a horns unarmed attack that deals 1d8 piercing damage. Your horns are in the brawling group and have the unarmed trait."),
+        legacy: false,
       ),
       price: 0,
       damage: "1d8",

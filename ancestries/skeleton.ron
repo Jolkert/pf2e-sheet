@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Skeleton",
     traits: ["Rare", "Skeleton", "Undead"],
+    flavor: Some("Skeletons are considered among the lowest types of undead. They're typically mindless creatures, lacking many of the abilities that make other undead a serious threat. However, the animated bones of dragons, giants, and other great beasts make for dangerous foes. Powerful living creatures can retain some of their might and intellect upon returning as a skeleton. Some necromancers turn their strongest enemies into skeletal undead servants, assuming they can keep control of them."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -12,62 +14,57 @@
   base_langs: ["Common", "Necril"],
   rec_langs: ["Aklo", "Dwarven", "Elven", "Infernal", "Orcish", "Undercommon"],
   features: [
-    Flavor( // EXPAND UPON THIS
-      id: Identifier(
-        id: "Undeath",
-        traits: [],
-      ),
-      flavor: "You have basic undead benefits. For your undead hunger, you don't eat flesh like ghouls or drink blood like vampires, but you do collect bones you can use to help yourself mend.",
+    Flavor(
+      id: "Undeath",
+      traits: [],
+      flavor: Some("You have basic undead benefits. For your undead hunger, you don't eat flesh like ghouls or drink blood like vampires, but you do collect bones you can use to help yourself mend."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "A creature with low-light vision can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("A creature with low-light vision can see in dim light as though it were bright light, so it ignores the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Negative Healing",
-        traits: [],
-      ),
-      flavor: "You are damaged by positive damage and aren't healed by positive healing effects. You don't take negative damage and are healed by negative effects that heal undead.",
+      id: "Negative Healing",
+      traits: [],
+      flavor: Some("You are damaged by positive damage and aren't healed by positive healing effects. You don't take negative damage and are healed by negative effects that heal undead."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Negative Survival",
-        traits: [],
-      ),
-      flavor: "Unlike normal undead, you aren't destroyed when reduced to 0 Hit Points. Instead, powerful negative energy attempts to keep you from being destroyed even in dire straits. You are knocked out and begin dying when reduced to 0 Hit Points. Because you're undead, many methods of bringing someone back from dying, such as stabilize, don't benefit you. When you would die, you're destroyed rather than dead, just like other undead.",
+      id: "Negative Survival",
+      traits: [],
+      flavor: Some("Unlike normal undead, you aren't destroyed when reduced to 0 Hit Points. Instead, powerful negative energy attempts to keep you from being destroyed even in dire straits. You are knocked out and begin dying when reduced to 0 Hit Points. Because you're undead, many methods of bringing someone back from dying, such as stabilize, don't benefit you. When you would die, you're destroyed rather than dead, just like other undead."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Immunity to Death Effects",
-        traits: [],
-      ),
-      flavor: "You're immune to death effects. This keeps you from being automatically killed or from having your dying value automatically increase, but it doesn't make you immune to other parts of the spell or effect. For example, you can still take mental damage and become frightened by a phantasmal killer, you just don't instantly die from it.",
+      id: "Immunity to Death Effects",
+      traits: [],
+      flavor: Some("You're immune to death effects. This keeps you from being automatically killed or from having your dying value automatically increase, but it doesn't make you immune to other parts of the spell or effect. For example, you can still take mental damage and become frightened by a phantasmal killer, you just don't instantly die from it."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Disease and Poison Protection",
         traits: [],
+        flavor: Some("You gain a +1 circumstance bonus to saving throws (or any other defense) against disease and poison."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Fortitude, Reflex, Will]),
           proficiency: None,
           circumstance: Some(["Disease", "Poison"]),
-          bonus: +1,
+          bonus: "+1",
         ),
       ],
-      flavor: "You gain a +1 circumstance bonus to saving throws (or any other defense) against disease and poison.",
     ),
     Flavor(
-      id: Identifier(
-        id: "Undead Hunger",
-        traits: [],
-      ),
-      flavor: "While you don't eat or drink the same food as humanoids do, you usually have thirsts and hungers related to your undead state, such as a ghoul's hunger for humanoid flesh, a zombie's craving for brains, and a vampire's desire for blood. Additionally, while you don't sleep, you enter a state of quiescence for at least 4 hours a day to recuperate, which lets your undead flesh reknit and recover naturally. Many undead choose to rest when the sun is at its highest.",
+      id: "Undead Hunger",
+      traits: [],
+      flavor: Some("While you don't eat or drink the same food as humanoids do, you usually have thirsts and hungers related to your undead state, such as a ghoul's hunger for humanoid flesh, a zombie's craving for brains, and a vampire's desire for blood. Additionally, while you don't sleep, you enter a state of quiescence for at least 4 hours a day to recuperate, which lets your undead flesh reknit and recover naturally. Many undead choose to rest when the sun is at its highest."),
+      legacy: false,
     ),
   ],
 )

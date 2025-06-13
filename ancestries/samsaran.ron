@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Samsaran",
     traits: ["Uncommon", "Humanoid", "Samsaran"],
+    flavor: Some("Blue-skinned people native to Zi Ha, who reincarnate upon death and recall pieces of their past lives. They are common in Zi Ha, Po Li, and Goka."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,33 +15,32 @@
   rec_langs: ["Chthonian", "Diabolic", "Draconian", "Empyrean", "Jotun", "Petran", "Pyric", "Sussuran", "Thalassic"],
   features: [
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Cryptomnesia",
         traits: [],
+        flavor: Some("You retain bits of knowledge from your former lives. You gain a +1 circumstance bonus to untrained skill checks."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: None,
           proficiency: Some(Untrained),
           circumstance: None,
-          bonus: +1,
+          bonus: "+1",
         ),
       ],
-      flavor: "You retain bits of knowledge from your former lives. You gain a +1 circumstance bonus to untrained skill checks.",
     ),
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Wanderer's Soul",
-        traits: [],
-      ),
-      flavor: "Your soul is especially able to return to the cycle of reincarnation. When you're the subject of raise dead, reincarnate, or a similar ritual that would return you to life, the primary caster uses the outcome one degree of success better than their roll. You always return to life as a samsaran, even if the ritual would reincarnate you into a body of a different ancestry.",
+      id: "Wanderer's Soul",
+      traits: [],
+      flavor: Some("Your soul is especially able to return to the cycle of reincarnation. When you're the subject of raise dead, reincarnate, or a similar ritual that would return you to life, the primary caster uses the outcome one degree of success better than their roll. You always return to life as a samsaran, even if the ritual would reincarnate you into a body of a different ancestry."),
+      legacy: false,
     ),
   ],
 )

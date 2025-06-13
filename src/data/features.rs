@@ -1,32 +1,30 @@
 use crate::{
-	data::{Condition, Feat, Identifier, Weapon},
+	data::{Condition, Meta, Weapon},
 	stats::{Proficiency, Stat},
 };
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub enum Feature {
 	Attack(Weapon),
-	Flavor(Flavor),
+	Flavor(Meta),
 	Action(Action),
 	Circumstance(Circumstances),
-	Feat(Feat),
-	Condition(Condition, u8),
-	Language,
+	Feat(String),
+	Condition(Condition, String),
+	Language(Option<String>),
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Action {
-	id: Identifier,
+	meta: Meta,
 	actions: u8,
-	reaction: bool,
-	trigger: String,
+	reaction_trigger: Option<String>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Circumstances {
-	id: Identifier,
+	meta: Meta,
 	circumstances: Vec<CircumstanceBonus>,
-	flavor: String,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -34,11 +32,5 @@ pub struct CircumstanceBonus {
 	pub stats: Option<Vec<Stat>>,
 	pub proficiency: Option<Proficiency>,
 	pub circumstance: Option<Vec<String>>,
-	pub bonus: i8,
-}
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct Flavor {
-	id: Identifier,
-	flavor: String,
+	pub bonus: String,
 }

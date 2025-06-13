@@ -16,7 +16,9 @@ pub use features::*;
 pub use weapons::*;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct Identifier {
+pub struct Meta {
 	pub id: String,
 	pub traits: Vec<String>,
+	pub flavor: Option<String>,
+	pub legacy: bool,
 }

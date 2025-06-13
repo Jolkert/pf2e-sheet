@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Ghoran",
     traits: ["Rare", "Ghoran", "Humanoid", "Plant"],
+    flavor: Some("These intelligent plant people, created by a long-dead druid, possess a sort of immortality through their seeds—unless these are destroyed by external events other than merely the ravages of time."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,18 +15,16 @@
   rec_langs: ["Aklo", "Draconic", "Elven", "Gnomish", "Jotun"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Photosynthesis",
-        traits: [],
-      ),
-      flavor: "You gain nourishment from photosynthesis. You typically don't need to pay for food. If you go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of alchemical sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (40 sp).",
+      id: "Photosynthesis",
+      traits: [],
+      flavor: Some("You gain nourishment from photosynthesis. You typically don't need to pay for food. If you go without sunlight for 1 week, you begin to starve. You can derive nourishment from specially formulated bottles of alchemical sunlight instead of natural sunlight, but these bottles cost 10 times as much as standard rations (40 sp)."),
+      legacy: false,
     ),
   ],
 )

@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Automaton",
     traits: ["Rare", "Automaton", "Construct"],
+    flavor: Some("These intelligent constructs house actual souls and represent what remains of a dying empire's last attempt at greatness. Automatons combine technological ingenuity with magical power, creating a blended being wholly unique to Golarion."),
+    legacy: false,
   ),
   size: [Small, Medium],
   speed: {"Walk": 25},
@@ -13,25 +15,22 @@
   rec_langs: ["Abyssal", "Aquan", "Auran", "Celestial", "Dwarven", "Elven", "Ignan", "Infernal", "Terran"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Automaton Core",
-        traits: [],
-      ),
-      flavor: "Your body contains an automaton core infused with planar quintessence that grants you power to perform various tasks and houses your soul and life energy. This life energy flows through you much like the blood of humanoids. As a result, you are a living creature. You don't have the typical construct immunities, can be affected by effects that target a living creature, and can recover Hit Points normally via positive energy. Additionally, you are not destroyed when reduced to 0 Hit Points. Instead, your life energy attempts to keep you active even in dire straits; you are knocked out and begin dying when reduced to 0 Hit Points.",
+      id: "Automaton Core",
+      traits: [],
+      flavor: Some("Your body contains an automaton core infused with planar quintessence that grants you power to perform various tasks and houses your soul and life energy. This life energy flows through you much like the blood of humanoids. As a result, you are a living creature. You don't have the typical construct immunities, can be affected by effects that target a living creature, and can recover Hit Points normally via positive energy. Additionally, you are not destroyed when reduced to 0 Hit Points. Instead, your life energy attempts to keep you active even in dire straits; you are knocked out and begin dying when reduced to 0 Hit Points."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Constructed Body",
-        traits: [],
-      ),
-      flavor: "Your physiological needs are different than those of living creatures. You don't need to eat or drink. You don't need to sleep, but you still need a daily period of rest. During this period of rest, you must enter a recuperating standby state for 2 hours, which is similar to sleeping except you are aware of your surroundings and don't take penalties for being unconscious. Much like with sleeping, if you go too long without entering your standby state, you become fatigued and can't recover until you enter standby for 2 hours."
+      id: "Constructed Body",
+      traits: [],
+      flavor: Some("Your physiological needs are different than those of living creatures. You don't need to eat or drink. You don't need to sleep, but you still need a daily period of rest. During this period of rest, you must enter a recuperating standby state for 2 hours, which is similar to sleeping except you are aware of your surroundings and don't take penalties for being unconscious. Much like with sleeping, if you go too long without entering your standby state, you become fatigued and can't recover until you enter standby for 2 hours."),
+      legacy: false,
     ),
   ],
 )

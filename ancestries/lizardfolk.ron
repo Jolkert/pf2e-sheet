@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Lizardfolk",
     traits: ["Uncommon", "Humanoid", "Lizardfolk"],
+    flavor: Some("Lizardfolk are scaled humanoids with a history that stretches into the distant past."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -12,17 +14,13 @@
   base_langs: ["Common", "Iruxi"],
   rec_langs: ["Amurrun", "Boggard", "Draconic", "Elven", "Fey", "Jotun", "Thalassic"],
   features: [
-    Feat(
-      id: Identifier(
-        id: "Breath Control",
-        traits: ["General"],
-      ),
-      text: "You can breathe even in hazardous or sparse air. You can hold your breath for 25 times as long as usual before suffocating. You gain a +1 circumstance bonus to saving throws against inhaled threats, such as inhaled poisons, and if you roll a success on such a saving throw, you get a critical success instead.",
-    ),
+    Feat("Breath Control"),
     Attack(
-      id: Identifier(
+      meta: Meta(
         id: "Claws",
         traits: ["Agile", "Finesse"],
+        flavor: Some("Your sharp claws offer an alternative to the fists other humanoids bring to a fight. You have a claw unarmed attack that deals 1d4 slashing damage, is in the brawling group, and has the agile and finesse traits."),
+        legacy: false,
       ),
       price: 0,
       damage: "1d4",

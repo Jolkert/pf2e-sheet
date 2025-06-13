@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Nagaji",
     traits: ["Uncommon", "Humanoid", "Nagaji"],
+    flavor: Some("With humanoid figures and serpentine heads, nagaji are heralds, companions, and servitors of powerful nagas. They hold a deep reverence for holy areas and spiritual truths, an aspect many others find as intimidating as a nagaji's appearance."),
+    legacy: true,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,16 +15,17 @@
   rec_langs: ["Aklo", "Amurrun", "Aquan", "Celestial", "Draconic", "Undercommon", "Shadowtongue", "Tengu", "Vanaran"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light and you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Attack(
-      id: Identifier(
+      meta: Meta(
         id: "Fangs",
         traits: ["Finesse", "Unarmed"],
+        flavor: Some("Your mouth contains either rows of hooked, needle-sharp teeth or a pair of vicious serpent fangs. You gain a fangs unarmed attack that deals 1d6 piercing damage. Your fangs are in the brawling group and have the finesse and unarmed traits."),
+        legacy: false,
       ),
       price: 0,
       damage: "1d6",

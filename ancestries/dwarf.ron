@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Dwarf",
     traits: ["Dwarf", "Humanoid"],
+    flavor: Some("Dwarves are a short, stocky people who are often stubborn, fierce, and devoted."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 20},
@@ -13,18 +15,16 @@
   rec_langs: ["Gnomish", "Goblin", "Jotun", "Orcish", "Petran", "Sakvroth"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Clan Dagger",
-        traits: [],
-      ),
-      flavor: "You get one clan dagger for free, as it was given to you at birth. Selling this clan dagger is a terrible taboo and earns you the disdain of other dwarves.",
+      id: "Clan Dagger",
+      traits: [],
+      flavor: Some("You get one clan dagger for free, as it was given to you at birth. Selling this clan dagger is a terrible taboo and earns you the disdain of other dwarves."),
+      legacy: false,
     ),
   ],
 )

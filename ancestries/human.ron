@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Human",
     traits: ["Human", "Humanoid"],
+    flavor: Some("Humans are diverse and adaptable people with wide potential and deep ambitions."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -12,6 +14,6 @@
   base_langs: ["Common"],
   rec_langs: [],
   features: [
-    Language,
+    Language(None),
   ],
 )

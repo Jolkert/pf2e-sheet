@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Tengu",
     traits: ["Uncommon", "Humanoid", "Tengu"],
+    flavor: Some("Tengus are gregarious and resourceful avian humanoids who collect knowledge and treasures alike."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,16 +15,17 @@
   rec_langs: ["Dwarven", "Elven", "Halfling", "Gnomish", "Goblin", "Fey"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Attack(
-      id: Identifier(
+      meta: Meta(
         id: "Sharp Beak",
         traits: ["Finesse", "Unarmed"],
+        flavor: Some("With your sharp beak, you are never without a weapon. You have a beak unarmed attack that deals 1d6 piercing damage. Your beak is in the brawling weapon group and has the finesse and unarmed traits."),
+        legacy: false,
       ),
       price: 0,
       damage: "1d6",

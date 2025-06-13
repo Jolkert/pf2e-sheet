@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Yaoguai",
     traits: ["Rare", "Humanoid", "Yaoguai"],
+    flavor: Some("Beings who usually begin their existence as simple animals, objects, or plants, but have found a means to transcend their original forms through the power of cultivation."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,14 +15,14 @@
   rec_langs: ["Aklo", "Draconic", "Fey", "Kitsune", "Nagaji", "Sakvroth", "Tengu", "Ysoki"],
   features: [
     Action(
-      id: Identifier(
+      meta: Meta(
         id: "Change Shape",
         traits: ["Concentrate", "Occult", "Polymorph", "Yaoguai"],
+        flavor: Some("You transform to or from your true yaoguai form into a humanoid alternate form, which is a common Medium humanoid ancestry prevalent where you were born (typically human). This form is the same apparent age and body type as your yaoguai form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You can remain in your humanoid form indefinitely, but you revert to your yaoguai form after 1 hour of unconsciousness or 1 minute after death."),
+        legacy: false,
       ),
       actions: 1,
-      reaction: false,
-      trigger: "",
-      flavor: "You transform to or from your true yaoguai form into a humanoid alternate form, which is a common Medium humanoid ancestry prevalent where you were born (typically human). This form is the same apparent age and body type as your yaoguai form and has roughly analogous physical traits, such as hair color. Using Change Shape counts as creating a disguise for the Impersonate use of Deception. You can remain in your humanoid form indefinitely, but you revert to your yaoguai form after 1 hour of unconsciousness or 1 minute after death.",
+      reaction_trigger: None,
     ),
   ],
 )

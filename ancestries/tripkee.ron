@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Tripkee",
     traits: ["Uncommon", "Humanoid", "Tripkee"],
+    flavor: Some("Tripkees are froglike humanoids whose spirit often exceeds their stature."),
+    legacy: false,
   ),
   size: [Small],
   speed: {"Walk": 25},
@@ -13,26 +15,26 @@
   rec_langs: ["Boggard", "Chthonian", "Draconic", "Elven", "Fey", "Iruxi", "Thalassic"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Low-Light Vision",
-        traits: [],
-      ),
-      flavor: "You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light.",
+      id: "Low-Light Vision",
+      traits: [],
+      flavor: Some("You can see in dim light as though it were bright light, so you ignore the concealed condition due to dim light."),
+      legacy: false,
     ),
     Circumstance(
-      id: Identifier(
+      meta: Meta(
         id: "Natural Climber",
         traits: [],
+        flavor: Some("You gain a +2 circumstance bonus to Athletics checks to Climb."),
+        legacy: false,
       ),
       circumstances: [
         (
           stats: Some([Athletics]),
           proficiency: None,
           circumstance: Some(["Climb"]),
-          bonus: +2,
+          bonus: "+2",
         ),
       ],
-      flavor: "You gain a +2 circumstance bonus to Athletics checks to Climb.",
     ),
   ],
 )

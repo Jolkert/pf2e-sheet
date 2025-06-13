@@ -1,8 +1,10 @@
 #![enable(unwrap_variant_newtypes)]
 (
-  id: Identifier(
+  meta: Meta(
     id: "Surki",
     traits: ["Rare", "Humanoid", "Surki"],
+    flavor: Some("Surkis are only now emerging from the subterranean Darklands in a generational dig to the surface. This insectile and highly metamorphic species subsists on the latent magic in the world around them. Once they have refined enough, surkis are capable of developing unique adaptations that allow them to project magic in diverse ways, from digging claws to energized wings."),
+    legacy: false,
   ),
   size: [Medium],
   speed: {"Walk": 25},
@@ -13,18 +15,16 @@
   rec_langs: ["Elven", "Fey", "Sakvroth"],
   features: [
     Flavor(
-      id: Identifier(
-        id: "Darkvision",
-        traits: [],
-      ),
-      flavor: "You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white.",
+      id: "Darkvision",
+      traits: [],
+      flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+      legacy: false,
     ),
     Flavor(
-      id: Identifier(
-        id: "Magiphage",
-        traits: [],
-      ),
-      flavor: "The various nodes throughout your body draw in latent magic from the world around you. You don't need to eat or drink unless you're in an especially magic-poor environment (such as the Mana Wastes). Choose what tradition of magic you most consumed as a larva; this type of magic has become so ingrained in your body that it changes the tradition of all surki spells and magical actions to that tradition.",
+      id: "Magiphage",
+      traits: [],
+      flavor: Some("The various nodes throughout your body draw in latent magic from the world around you. You don't need to eat or drink unless you're in an especially magic-poor environment (such as the Mana Wastes). Choose what tradition of magic you most consumed as a larva; this type of magic has become so ingrained in your body that it changes the tradition of all surki spells and magical actions to that tradition."),
+      legacy: false,
     ),
   ],
 )
