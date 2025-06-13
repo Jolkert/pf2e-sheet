@@ -51,8 +51,8 @@ impl serde::Serialize for AttributeSet {
 	{
 		if self == &Self::all() {
 			SerAttribute::Free.serialize(serializer)
-		} else if let Some(only) = self.iter().next() {
-			only.serialize(serializer)
+		} else if self.len() == 1 {
+			self.iter().next().unwrap().serialize(serializer)
 		} else {
 			self.0.serialize(serializer)
 		}
