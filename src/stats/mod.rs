@@ -98,7 +98,7 @@ impl std::ops::Deref for AttributeSet {
 	type Target = EnumSet<Attribute>;
 
 	fn deref(&self) -> &Self::Target {
-		todo!()
+		&self.0
 	}
 }
 
