@@ -29,29 +29,39 @@ pub enum Stat<S = String> {
 }
 
 impl Stat {
+
+    // I just want this to look sane and i cant find a rustfmt setting that actually
+    // does quite what i want here lol
+    // -morgan 2025-06-12
+    #[rustfmt::skip]
 	pub fn attribute(&self) -> Attribute {
 		match self {
-			Stat::Acrobatics => Attribute::Dex,
-			Stat::Arcana => Attribute::Int,
 			Stat::Athletics => Attribute::Str,
-			Stat::Crafting => Attribute::Int,
-			Stat::Deception => Attribute::Cha,
-			Stat::Diplomacy => Attribute::Cha,
+
+			Stat::Acrobatics
+			| Stat::Reflex
+			| Stat::Stealth
+			| Stat::Thievery => Attribute::Dex,
+
 			Stat::Fortitude => Attribute::Con,
-			Stat::Intimidation => Attribute::Cha,
-			Stat::Lore(_) => Attribute::Int,
-			Stat::Medicine => Attribute::Wis,
-			Stat::Nature => Attribute::Wis,
-			Stat::Occultism => Attribute::Int,
-			Stat::Perception => Attribute::Wis,
-			Stat::Performance => Attribute::Cha,
-			Stat::Reflex => Attribute::Dex,
-			Stat::Religion => Attribute::Wis,
-			Stat::Society => Attribute::Int,
-			Stat::Stealth => Attribute::Dex,
-			Stat::Survival => Attribute::Wis,
-			Stat::Thievery => Attribute::Dex,
-			Stat::Will => Attribute::Wis,
+
+			Stat::Arcana
+			| Stat::Crafting
+			| Stat::Lore(_)
+			| Stat::Occultism
+			| Stat::Society => Attribute::Int,
+			
+			Stat::Medicine
+			| Stat::Nature
+			| Stat::Perception
+			| Stat::Religion
+			| Stat::Survival
+			| Stat::Will => Attribute::Wis,
+
+			Stat::Deception
+			| Stat::Diplomacy
+			| Stat::Intimidation
+			| Stat::Performance => Attribute::Cha
 		}
 	}
 }
