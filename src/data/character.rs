@@ -61,7 +61,7 @@ impl Character {
 	fn max_hp(&self) -> u16 {
 		self.ancestry.base_hp as u16
 			+ (self.level as u16)
-				* (self.class.hp as u16 + self.attributes.constitution.bonus as u16)
+				* (self.class.hp as u16 + self.attributes.constitution.bonus() as u16)
 	}
 
 	fn current_hp(&self) -> u16 {
