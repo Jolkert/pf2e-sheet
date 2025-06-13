@@ -38,15 +38,13 @@ pub enum SizeClass {
 fn test_all_serde() {
 	let files = std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
 
-	for file in files {
-		if let Ok(f) = file {
-			let path = f.path();
-			if path.extension().is_some_and(|ext| ext == "ron") {
-				let path_str = path.display();
-				println!("Testing {path_str}");
-				let file_str = std::fs::read_to_string(path).expect("FUCK (1)");
-				let _: Ancestry = ron::from_str(&file_str).expect("FUCK (2)");
-			}
+	for file in files.flatten() {
+		let path = file.path();
+		if path.extension().is_some_and(|ext| ext == "ron") {
+			let path_str = path.display();
+			println!("Testing {path_str}");
+			let file_str = std::fs::read_to_string(path).expect("FUCK (1)");
+			let _: Ancestry = ron::from_str(&file_str).expect("FUCK (2)");
 		}
 	}
 }
