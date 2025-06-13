@@ -173,7 +173,7 @@ impl Proficiency {
 mod tests {
 	use super::*;
 
-	#[derive(Debug, serde::Deserialize, PartialEq, Eq)]
+	#[derive(Debug, serde::Serialize, serde::Deserialize, PartialEq, Eq)]
 	struct TestAttributeContainer {
 		single_attribute: AttributeSet,
 		full: AttributeSet,
@@ -202,5 +202,36 @@ mod tests {
 			ron::from_str::<TestAttributeContainer>(ron).expect("oops!"),
 			expected
 		)
+	}
+
+	#[test]
+	fn attribute_ser_test() {
+	    let expected = r#"
+        (
+            single_attribute: Str,
+            full: Free,
+            explicit_seq: [Con, Int],
+            questionable: Dex
+        )
+	    "#;
+        
+        let serialize= TestAttributeContainer {
+			single_attribute: Attribute::Str.into(),
+			full: AttributeSet::all(),
+			explicit_seq: Attribute::Con | Attribute::Int,
+			questionable: Attribute::Dex.into(),
+		};
+	    
+	    assert_eq!(
+	        delete_whitespace(&ron::to_string(&serialize).expect("oops!")),
+	        delete_whitespace(expected)
+	    );
+	}
+
+	fn delete_whitespace(string: &str) -> String {
+	    string.split_whitespace().fold(String::new(), |mut acc, curr| {
+	        acc.push_str(&curr);
+	        acc
+	    })
 	}
 }
