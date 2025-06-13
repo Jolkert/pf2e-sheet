@@ -111,7 +111,8 @@ impl Character {
 					self.conditions.insert(Condition::Dead, 1);
 				}
 			} else {
-				let total_remaining_hp = (self.current_hp() + self.temp_hp).saturating_sub(damage);
+				let total_remaining_hp =
+					(self.current_hp() + self.temp_hp).saturating_sub(damage);
 
 				// condition is true iff damage <= temp hp (meaning subtraction is safe without
 				// underflow)

@@ -36,7 +36,8 @@ pub enum SizeClass {
 
 #[test]
 fn test_all_serde() {
-	let files = std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
+	let files =
+		std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
 
 	for file in files.flatten() {
 		let path = file.path();

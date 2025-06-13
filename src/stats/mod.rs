@@ -29,9 +29,9 @@ pub enum Stat<S = String> {
 }
 
 impl Stat {
-    // I just want this to look sane and i cant find a rustfmt setting that actually
-    // does quite what i want here lol
-    // -morgan 2025-06-12
+	// I just want this to look sane and i cant find a rustfmt setting that actually
+	// does quite what i want here lol
+	// -morgan 2025-06-12
     #[rustfmt::skip]
 	pub fn attribute(&self) -> Attribute {
 		match self {
@@ -68,39 +68,35 @@ impl Stat {
 #[derive(Debug, Clone, Copy, serde::Serialize, serde::Deserialize)]
 pub struct AttributeValue(i8);
 impl AttributeValue {
-    pub fn bonus(self) -> i8 {
-        if self.0 <= 4 {
-            self.0
-        }
-        else
-        {
-            4 + (self.0 - 4)/2
-        }
-    }
-    pub fn partial_boost(self) -> bool
-    {
-        if self.0 <= 4 {
-            false
-        }
-        else {
-            self.0 % 2 != 0
-        }
-    }
+	pub fn bonus(self) -> i8 {
+		if self.0 <= 4 {
+			self.0
+		} else {
+			4 + (self.0 - 4) / 2
+		}
+	}
+	pub fn partial_boost(self) -> bool {
+		if self.0 <= 4 {
+			false
+		} else {
+			self.0 % 2 != 0
+		}
+	}
 }
 
 impl std::ops::Add<i8> for AttributeValue {
 	type Output = Self;
 
 	fn add(self, rhs: i8) -> Self::Output {
-	    Self(self.0 + rhs)
+		Self(self.0 + rhs)
 	}
 }
 impl std::ops::Sub<i8> for AttributeValue {
-    type Output = Self;
+	type Output = Self;
 
-    fn sub(self, rhs: i8) -> Self::Output {
-        self + -rhs
-    }
+	fn sub(self, rhs: i8) -> Self::Output {
+		self + -rhs
+	}
 }
 
 #[derive(Debug, enumset::EnumSetType, serde::Serialize, serde::Deserialize)]
@@ -192,4 +188,3 @@ impl Proficiency {
 		}
 	}
 }
-

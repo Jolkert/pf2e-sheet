@@ -98,7 +98,8 @@ mod tests {
 		};
 
 		assert_eq!(
-			ron::from_str::<TestAttributeContainer>(ron).expect("Could not deserialize RON string"),
+			ron::from_str::<TestAttributeContainer>(ron)
+				.expect("Could not deserialize RON string"),
 			expected
 		)
 	}
