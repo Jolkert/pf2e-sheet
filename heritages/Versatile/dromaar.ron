@@ -1,0 +1,17 @@
+(
+    meta: (
+        id: "Dromaar",
+        traits: ["orc", "dromaar"],
+        flavor: Some("Orcish strength emboldens your bloodline. You have a green tinge to your skin and other indicators of orc heritage. You gain the orc trait, the dromaar trait, and low-light vision. When you gain an ancestry feat, you can choose from dromaar and orc feats in addition to those from your ancestry."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Flavor(
+            id: "Low-Light Vision",
+            traits: [],
+            flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+            legacy: false,
+        ),
+    ],
+)

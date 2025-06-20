@@ -63,6 +63,40 @@ impl Stat {
 			| Stat::Performance => Attribute::Cha,
 		}
 	}
+
+	pub fn from_str(input: &str) -> Option<Self> {
+		match input.to_lowercase().as_str() {
+			"acrobatics" => Some(Self::Acrobatics),
+			"arcana" => Some(Self::Arcana),
+			"athletics" => Some(Self::Athletics),
+			"crafting" => Some(Self::Crafting),
+			"deception" => Some(Self::Deception),
+			"diplomacy" => Some(Self::Diplomacy),
+			"fortitude" => Some(Self::Fortitude),
+			"intimidation" => Some(Self::Intimidation),
+			"medicine" => Some(Self::Medicine),
+			"nature" => Some(Self::Nature),
+			"occultism" => Some(Self::Occultism),
+			"perception" => Some(Self::Perception),
+			"performance" => Some(Self::Performance),
+			"reflex" => Some(Self::Reflex),
+			"religion" => Some(Self::Religion),
+			"society" => Some(Self::Society),
+			"stealth" => Some(Self::Stealth),
+			"survival" => Some(Self::Survival),
+			"thievery" => Some(Self::Thievery),
+			"will" => Some(Self::Will),
+			t => {
+				if t.ends_with("lore") {
+					Some(Self::Lore(
+						t.split_whitespace().collect::<Vec<_>>()[0].to_string(),
+					))
+				} else {
+					None
+				}
+			}
+		}
+	}
 }
 
 #[derive(Debug, Clone, Copy, serde::Serialize, serde::Deserialize)]
@@ -112,6 +146,18 @@ pub enum Attribute {
 }
 impl Attribute {
 	const FREE: AttributeSet = AttributeSet::all();
+
+	pub fn from_str(input: &str) -> Option<Self> {
+		match input.to_lowercase().as_str() {
+			"str" | "strength" => Some(Attribute::Str),
+			"dex" | "dexterity" => Some(Attribute::Dex),
+			"con" | "constitution" => Some(Attribute::Con),
+			"int" | "intelligence" => Some(Attribute::Int),
+			"wis" | "wisdom" => Some(Attribute::Wis),
+			"cha" | "charisma" => Some(Attribute::Cha),
+			&_ => None,
+		}
+	}
 }
 
 impl std::ops::Deref for AttributeSet {
@@ -185,6 +231,17 @@ impl Proficiency {
 			Self::Expert => 4,
 			Self::Master => 6,
 			Self::Legendary => 8,
+		}
+	}
+
+	pub fn from_str(string: &str) -> Option<Self> {
+		match string.to_lowercase().as_str() {
+			"untrained" => Some(Self::Untrained),
+			"trained" => Some(Self::Trained),
+			"expert" => Some(Self::Expert),
+			"master" => Some(Self::Master),
+			"legendary" => Some(Self::Legendary),
+			_ => None,
 		}
 	}
 }

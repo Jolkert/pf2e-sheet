@@ -6,7 +6,7 @@ pub struct Weapon {
 	pub price: u16,
 	pub damage: String,
 	pub damage_type: DamageType,
-	pub range: u16,
+	pub range: Option<u16>,
 	pub bulk: u16,
 	pub hands: u8,
 	pub group: WeaponGroup,

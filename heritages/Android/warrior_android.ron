@@ -1,0 +1,13 @@
+(
+    meta: (
+        id: "Warrior Android",
+        traits: [],
+        flavor: Some("Your body was originally created to function as a security officer or soldier. You're a naturally gifted warrior preprogrammed for combat. You're trained in all simple and martial weapons."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        WeaponCategoryProficiency(Simple, Trained),
+        WeaponCategoryProficiency(Martial, Trained),
+    ],
+)

@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Hungerseed",
+        traits: ["uncommon", "oni"],
+        flavor: Some("One of your parents was an oni or a hungerseed. You possess a pair of horns, ranging in size from conical nubs to lengthy protrusions. You might have other signs of your parentage, such as colorful skin, fangs and claws, or a third eye in your forehead. You gain the oni trait. You gain a horns unarmed attack that deals 1d6 piercing damage and is in the brawling group. You can select from hungerseed feats and feats from your other parent's ancestry whenever you gain an ancestry feat."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Attack(
+            meta: (
+                id: "Horns",
+                traits: ["unarmed"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            damage: "1d6",
+            damage_type: Piercing,
+            range: 5,
+            bulk: 0,
+            hands: 0,
+            group: Brawling,
+            category: Unarmed,
+        ),
+    ],
+)

@@ -1,0 +1,25 @@
+(
+    meta: (
+        id: "Changeling",
+        traits: ["uncommon", "changeling"],
+        flavor: Some("Your mother was a hag. Your eyes' heterochromia is the most obvious signifier of this parentage, but you likely also have a slighter build, paler skin, and darker hair than most members of your other parent's ancestry. You gain the changeling trait. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can select from changeling feats and feats from your other parent's ancestry whenever you gain an ancestry feat."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Hierarchy([
+            Flavor(
+                id: "Low-Light Vision",
+                traits: [],
+                flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+                legacy: false,
+            ),
+            Flavor(
+                id: "Darkvision",
+                traits: [],
+                flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+                legacy: false,
+            )
+        ]),
+    ],
+)

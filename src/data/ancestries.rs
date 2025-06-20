@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use crate::{
-	data::{Feature, Meta},
+	data::{Feature, Meta, Prerequisite},
 	stats::AttributeSet,
 };
 
@@ -21,6 +21,7 @@ pub struct Ancestry {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Heritage {
 	meta: Meta,
+	prereqs: Vec<Prerequisite>,
 	features: Vec<Feature>,
 }
 

@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use saikoro::evaluation::SymbolTable;
 
 use crate::{
-	data::{Ancestry, Class, DamageType, Feature, Heritage, Meta},
+	data::{Ancestry, Class, DamageType, Feat, Heritage, Meta},
 	stats::{Attribute, Attributes, Proficiency, Stat},
 };
 
@@ -156,17 +156,6 @@ pub struct Background {
 	feats: Vec<Feat>,
 	summary: String,
 }
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct Feat {
-	pub meta: Meta,
-	pub level: u8,
-	pub prereqs: Vec<Prerequisite>,
-	pub features: Vec<Feature>,
-}
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub enum Prerequisite {}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum Condition {

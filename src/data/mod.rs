@@ -4,14 +4,18 @@
 // Todo: Honglos Hüberhaus
 
 mod ancestries;
+mod armor;
 mod character;
 mod classes;
+mod feat;
 mod features;
 mod weapons;
 
 pub use ancestries::*;
+pub use armor::*;
 pub use character::*;
 pub use classes::*;
+pub use feat::*;
 pub use features::*;
 pub use weapons::*;
 

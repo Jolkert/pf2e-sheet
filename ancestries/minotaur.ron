@@ -30,7 +30,7 @@
       price: 0,
       damage: "1d8",
       damage_type: Piercing,
-      range: 5,
+      range: None,
       bulk: 0,
       hands: 1,
       group: Brawling,

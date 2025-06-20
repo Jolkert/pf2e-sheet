@@ -1,0 +1,25 @@
+(
+    meta: (
+        id: "Tiefling",
+        traits: ["uncommon", "tiefling"],
+        flavor: Some("You descend from fiends or bear the mark of the fiendish realms, manifesting as some unusual feature that belies your heritage, such as horns or a tail. You gain the tiefling trait, in addition to the traits from your ancestry. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can choose from tiefling feats and feats from your ancestry whenever you gain an ancestry feat."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Hierarchy([
+            Flavor(
+                id: "Low-Light Vision",
+                traits: [],
+                flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+                legacy: false,
+            ),
+            Flavor(
+                id: "Darkvision",
+                traits: [],
+                flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+                legacy: false,
+            )
+        ]),
+    ],
+)

@@ -1,0 +1,17 @@
+(
+    meta: (
+        id: "Aiuvarin",
+        traits: ["elf", "aiuvarin"],
+        flavor: Some("You have elves, or possibly other aiuvarins, in your family tree. You have pointed ears and other telltale signs of elf heritage. You gain the elf trait, the aiuvarin trait, and low-light vision. In addition, when you gain an ancestry feat, you can choose from aiuvarin and elf feats in addition to those from your ancestry."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Flavor(
+            id: "Low-Light Vision",
+            traits: [],
+            flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+            legacy: false,
+        ),
+    ],
+)
