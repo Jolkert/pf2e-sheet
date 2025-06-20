@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use crate::{
 	data::{Feature, Meta, Prerequisite},
 	stats::AttributeSet,
@@ -9,7 +7,7 @@ use crate::{
 pub struct Ancestry {
 	pub meta: Meta,
 	pub size: Vec<SizeClass>,
-	pub speed: HashMap<String, u8>,
+	pub speed: Speed,
 	pub base_hp: u8,
 	pub at_boost: Vec<AttributeSet>,
 	pub at_flaw: Vec<AttributeSet>,
@@ -35,10 +33,19 @@ pub enum SizeClass {
 	Gargantuan,
 }
 
+#[derive(Debug, Clone, Copy, serde::Deserialize, serde::Serialize)]
+pub struct Speed {
+	walk: u8,
+	burrow: u8,
+	climb: u8,
+	fly: u8,
+	swim: u8,
+}
+
 #[test]
 fn test_all_serde() {
 	let files =
-		std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
+		std::fs::read_dir("./data/ancestries").expect("Couldn't find 'ancestries' directory!");
 
 	for file in files.flatten() {
 		let path = file.path();

@@ -1,5 +1,5 @@
 use crate::{
-	data::{Armor, ArmorCategory, Condition, Meta, SizeClass, Weapon, WeaponCategory},
+	data::{Armor, ArmorCategory, Condition, Meta, SizeClass, Speed, Weapon, WeaponCategory},
 	stats::{Proficiency, Stat},
 };
 
@@ -20,7 +20,7 @@ pub enum Feature {
 	// TODO: i assume this is for the speed "type"? that should probably get like an enum
 	// or smth?
 	// -morgan 2025-06-19
-	Speed(String, u8),
+	Speed(Speed),
 	Spell(Spell),
 	CantripChoice(CantripChoice),
 	Size(Vec<SizeClass>),
