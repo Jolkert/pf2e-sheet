@@ -171,7 +171,7 @@ impl std::str::FromStr for Attribute {
 			"int" | "intelligence" => Ok(Attribute::Int),
 			"wis" | "wisdom" => Ok(Attribute::Wis),
 			"cha" | "charisma" => Ok(Attribute::Cha),
-			&_ => Err(()),
+			_ => Err(()),
 		}
 	}
 }
