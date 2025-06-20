@@ -134,7 +134,7 @@ mod tests {
 		string
 			.split_whitespace()
 			.fold(String::new(), |mut acc, curr| {
-				acc.push_str(&curr);
+				acc.push_str(curr);
 				acc
 			})
 	}

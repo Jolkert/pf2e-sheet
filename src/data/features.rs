@@ -14,14 +14,18 @@ pub enum Feature {
 	Feat(String),
 	Condition(Condition, String),
 	Language(Option<String>),
-	Proficiency((Stat, Proficiency)),
-	WeaponCategoryProficiency((WeaponCategory, Proficiency)),
-	ArmorCategoryProficiency((ArmorCategory, Proficiency)),
-	Speed((String, u8)),
+	Proficiency(Stat, Proficiency),
+	WeaponCategoryProficiency(WeaponCategory, Proficiency),
+	ArmorCategoryProficiency(ArmorCategory, Proficiency),
+	// TODO: i assume this is for the speed "type"? that should probably get like an enum
+	// or smth?
+	// -morgan 2025-06-19
+	Speed(String, u8),
 	Spell(Spell),
 	CantripChoice(CantripChoice),
 	Size(Vec<SizeClass>),
-	Choice((u8, Vec<Feature>)),
+	// TODO: give this u8 a meaningful name probably? -morgan 2025-06-19
+	Choice(u8, Vec<Feature>),
 	Hierarchy(Vec<Feature>),
 }
 

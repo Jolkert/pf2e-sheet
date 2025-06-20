@@ -11,6 +11,8 @@ pub struct Feat {
 	pub features: Vec<Feature>,
 }
 
+// maybe later clippy -morgan 2025-06-19
+#[allow(clippy::new_without_default)]
 impl Feat {
 	pub fn new() -> Self {
 		Feat {

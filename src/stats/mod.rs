@@ -63,36 +63,39 @@ impl Stat {
 			| Stat::Performance => Attribute::Cha,
 		}
 	}
+}
 
-	pub fn from_str(input: &str) -> Option<Self> {
-		match input.to_lowercase().as_str() {
-			"acrobatics" => Some(Self::Acrobatics),
-			"arcana" => Some(Self::Arcana),
-			"athletics" => Some(Self::Athletics),
-			"crafting" => Some(Self::Crafting),
-			"deception" => Some(Self::Deception),
-			"diplomacy" => Some(Self::Diplomacy),
-			"fortitude" => Some(Self::Fortitude),
-			"intimidation" => Some(Self::Intimidation),
-			"medicine" => Some(Self::Medicine),
-			"nature" => Some(Self::Nature),
-			"occultism" => Some(Self::Occultism),
-			"perception" => Some(Self::Perception),
-			"performance" => Some(Self::Performance),
-			"reflex" => Some(Self::Reflex),
-			"religion" => Some(Self::Religion),
-			"society" => Some(Self::Society),
-			"stealth" => Some(Self::Stealth),
-			"survival" => Some(Self::Survival),
-			"thievery" => Some(Self::Thievery),
-			"will" => Some(Self::Will),
-			t => {
-				if t.ends_with("lore") {
-					Some(Self::Lore(
-						t.split_whitespace().collect::<Vec<_>>()[0].to_string(),
-					))
+impl std::str::FromStr for Stat {
+	// TODO: proper error type -morgan 2025-06-19
+	type Err = ();
+
+	fn from_str(s: &str) -> Result<Self, Self::Err> {
+		match s.to_lowercase().as_str() {
+			"acrobatics" => Ok(Self::Acrobatics),
+			"arcana" => Ok(Self::Arcana),
+			"athletics" => Ok(Self::Athletics),
+			"crafting" => Ok(Self::Crafting),
+			"deception" => Ok(Self::Deception),
+			"diplomacy" => Ok(Self::Diplomacy),
+			"fortitude" => Ok(Self::Fortitude),
+			"intimidation" => Ok(Self::Intimidation),
+			"medicine" => Ok(Self::Medicine),
+			"nature" => Ok(Self::Nature),
+			"occultism" => Ok(Self::Occultism),
+			"perception" => Ok(Self::Perception),
+			"performance" => Ok(Self::Performance),
+			"reflex" => Ok(Self::Reflex),
+			"religion" => Ok(Self::Religion),
+			"society" => Ok(Self::Society),
+			"stealth" => Ok(Self::Stealth),
+			"survival" => Ok(Self::Survival),
+			"thievery" => Ok(Self::Thievery),
+			"will" => Ok(Self::Will),
+			s => {
+				if s.ends_with(" lore") {
+					Ok(Self::Lore(s.chars().take(s.len() - 5).collect()))
 				} else {
-					None
+					Err(())
 				}
 			}
 		}
@@ -146,18 +149,6 @@ pub enum Attribute {
 }
 impl Attribute {
 	const FREE: AttributeSet = AttributeSet::all();
-
-	pub fn from_str(input: &str) -> Option<Self> {
-		match input.to_lowercase().as_str() {
-			"str" | "strength" => Some(Attribute::Str),
-			"dex" | "dexterity" => Some(Attribute::Dex),
-			"con" | "constitution" => Some(Attribute::Con),
-			"int" | "intelligence" => Some(Attribute::Int),
-			"wis" | "wisdom" => Some(Attribute::Wis),
-			"cha" | "charisma" => Some(Attribute::Cha),
-			&_ => None,
-		}
-	}
 }
 
 impl std::ops::Deref for AttributeSet {
@@ -165,6 +156,23 @@ impl std::ops::Deref for AttributeSet {
 
 	fn deref(&self) -> &Self::Target {
 		&self.0
+	}
+}
+
+impl std::str::FromStr for Attribute {
+	// TODO: proper error type
+	type Err = ();
+
+	fn from_str(s: &str) -> Result<Self, Self::Err> {
+		match s.to_lowercase().as_str() {
+			"str" | "strength" => Ok(Attribute::Str),
+			"dex" | "dexterity" => Ok(Attribute::Dex),
+			"con" | "constitution" => Ok(Attribute::Con),
+			"int" | "intelligence" => Ok(Attribute::Int),
+			"wis" | "wisdom" => Ok(Attribute::Wis),
+			"cha" | "charisma" => Ok(Attribute::Cha),
+			&_ => Err(()),
+		}
 	}
 }
 
@@ -233,15 +241,20 @@ impl Proficiency {
 			Self::Legendary => 8,
 		}
 	}
+}
 
-	pub fn from_str(string: &str) -> Option<Self> {
-		match string.to_lowercase().as_str() {
-			"untrained" => Some(Self::Untrained),
-			"trained" => Some(Self::Trained),
-			"expert" => Some(Self::Expert),
-			"master" => Some(Self::Master),
-			"legendary" => Some(Self::Legendary),
-			_ => None,
+impl std::str::FromStr for Proficiency {
+	// TODO: proper error type
+	type Err = ();
+
+	fn from_str(s: &str) -> Result<Self, Self::Err> {
+		match s.to_lowercase().as_str() {
+			"untrained" => Ok(Self::Untrained),
+			"trained" => Ok(Self::Trained),
+			"expert" => Ok(Self::Expert),
+			"master" => Ok(Self::Master),
+			"legendary" => Ok(Self::Legendary),
+			_ => Err(()),
 		}
 	}
 }
