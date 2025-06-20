@@ -1,0 +1,25 @@
+(
+    meta: (
+        id: "Duskwalker",
+        traits: ["uncommon", "duskwalker"],
+        flavor: Some("Thanks to an ancient bargain, your soul has been reborn as a duskwalker, a planar scion with a connection to psychopomps and the Boneyard. You gain the duskwalker trait. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. Neither your body nor your spirit can ever become undead. You can select from duskwalker feats and feats from your ancestry whenever you gain an ancestry feat."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Hierarchy([
+            Flavor(
+                id: "Low-Light Vision",
+                traits: [],
+                flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+                legacy: false,
+            ),
+            Flavor(
+                id: "Darkvision",
+                traits: [],
+                flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+                legacy: false,
+            )
+        ]),
+    ],
+)

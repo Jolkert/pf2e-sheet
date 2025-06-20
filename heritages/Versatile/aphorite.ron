@@ -1,0 +1,25 @@
+(
+    meta: (
+        id: "Aphorite",
+        traits: ["uncommon", "aphorite"],
+        flavor: Some("You were born with a connection to Axis, the Plane of Law. You gain the aphorite trait, in addition to the traits from your ancestry. You also gain low-light vision, or you gain darkvision if your ancestry already has low-light vision. You can choose from aphorite feats and feats from your ancestry whenever you gain an ancestry feat."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Hierarchy([
+            Flavor(
+                id: "Low-Light Vision",
+                traits: [],
+                flavor: Some("You can see in dim light as though it were bright light, and you ignore the concealed condition due to dim light."),
+                legacy: false,
+            ),
+            Flavor(
+                id: "Darkvision",
+                traits: [],
+                flavor: Some("You can see in darkness and dim light just as well as you can see in bright light, though your vision in darkness is in black and white."),
+                legacy: false,
+            )
+        ]),
+    ],
+)

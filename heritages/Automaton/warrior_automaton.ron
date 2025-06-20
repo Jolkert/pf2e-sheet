@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Warrior Automaton",
+        traits: [],
+        flavor: Some("Sporting a bulkier, powerful design, your body has been designed for combat. You have a bulky, humanoid shape. The damage die for your fist increases to 1d6 instead of 1d4. You don't take a penalty when making a lethal attack with your fist or any other unarmed attack."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Attack(
+            meta: (
+                id: "Fist",
+                traits: ["agile", "finesse", "nonlethal", "unarmed"],
+                flavor: None,
+                legacy: false,
+            )
+            price: 0,
+            damage: "1d6",
+            damage_type: Bludgeoning,
+            range: None,
+            bulk: 0,
+            hands: 1,
+            group: Brawling,
+            category: Unarmed,
+        )
+    ],
+)

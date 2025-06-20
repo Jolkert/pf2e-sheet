@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Quilled Athamaru",
+        traits: [],
+        flavor: Some("Sharp quills on your head can pierce your foes deeply. Most athamarus use such quills for defense, but a well-timed headbash can be devastatingly effective. You gain a quills melee unarmed attack that deals 1d6 piercing damage. Your quills are in the brawling group and have the agile, finesse, and unarmed traits."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Attack(
+            meta: (
+                id: "Quills",
+                traits: ["agile", "finesse", "unarmed"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            damage: "1d6",
+            damage_type: Piercing,
+            range: None,
+            bulk: 0,
+            hands: 0,
+            group: Brawling,
+            category: Unarmed,
+        ),
+    ],
+)

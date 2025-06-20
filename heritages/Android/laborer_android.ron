@@ -1,0 +1,13 @@
+(
+    meta: (
+        id: "Laborer Android",
+        traits: [],
+        flavor: Some("Your body is adapted to endure physical hardships or perform hard labor for long periods of time. You become trained in Athletics (or another skill if you're already trained in Athletics), and you gain the Hefty Hauler skill feat."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Proficiency((Athletics, Trained)),
+        Feat("hefty hauler"),
+    ],
+)

@@ -1,0 +1,28 @@
+(
+    meta: (
+        id: "Coral Athamaru",
+        traits: [],
+        flavor: Some("Coral covers patches of your body, which provides a natural layer of defense. Coral athamarus often choose Coral Symbiotes and other related ancestry feats. The coral plates are medium armor in the plate armor group that grant a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a Speed penalty of –5 feet, a Strength value of +3, and have the aquadynamic and comfort traits. You can never wear other armor or remove the coral. You can etch armor runes onto the coral."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Defense(
+            meta: (
+                id: "Coral"
+                traits: ["aquadynamic", "comfort"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            bulk: 0,
+            ac_bonus: +4,
+            dex_cap: +1,
+            check_penalty: -2,
+            speed_penalty: -5,
+            str_req: +3,
+            category: Medium,
+            group: Plate,
+        )
+    ],
+)

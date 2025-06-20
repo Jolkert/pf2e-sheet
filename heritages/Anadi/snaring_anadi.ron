@@ -1,0 +1,28 @@
+(
+    meta: (
+        id: "Snaring Anadi",
+        traits: [],
+        flavor: Some("You were hatched with hooked fangs that give you an edge when hunting in your true form. Your fangs attack gains the grapple and trip traits."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        // Note: this will have to override the fangs attack given by the Anadi ancestry
+        Attack(
+            meta: (
+                id: "fangs",
+                traits: ["finesse", "unarmed", "grapple", "trip"],
+                flavor: Some("You were born with a natural means for hunting and self-defense. You gain a fangs unarmed attack that deals 1d6 piercing damage. Your fangs are in the brawling group and have the finesse and unarmed traits."),
+                legacy: false,
+            ),
+            price: 0,
+            damage: "1d6",
+            damage_type: Piercing,
+            range: 5,
+            bulk: 0,
+            hands: 0,
+            group: Brawling,
+            category: Unarmed,
+        ),
+    ],
+)

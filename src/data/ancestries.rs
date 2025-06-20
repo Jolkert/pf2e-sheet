@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use crate::{
-	data::{Feature, Meta},
+	data::{Feature, Meta, Prerequisite},
 	stats::AttributeSet,
 };
 
@@ -21,6 +21,7 @@ pub struct Ancestry {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Heritage {
 	meta: Meta,
+	prereqs: Vec<Prerequisite>,
 	features: Vec<Feature>,
 }
 
@@ -36,15 +37,18 @@ pub enum SizeClass {
 
 #[test]
 fn test_all_serde() {
-	let files = std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
+	let files =
+		std::fs::read_dir("./ancestries").expect("Couldn't find 'ancestries' directory!");
 
 	for file in files.flatten() {
 		let path = file.path();
 		if path.extension().is_some_and(|ext| ext == "ron") {
-			let path_str = path.display();
-			println!("Testing {path_str}");
-			let file_str = std::fs::read_to_string(path).expect("FUCK (1)");
-			let _: Ancestry = ron::from_str(&file_str).expect("FUCK (2)");
+			let file_str = std::fs::read_to_string(&path).unwrap_or_else(|err| {
+				panic!("Failed read file {}: {err}", path.display());
+			});
+			let _: Ancestry = ron::from_str(&file_str).unwrap_or_else(|err| {
+				panic!("Failed to deserialize file {}: {err}", path.display())
+			});
 		}
 	}
 }

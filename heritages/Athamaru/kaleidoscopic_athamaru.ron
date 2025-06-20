@@ -1,0 +1,37 @@
+(
+    meta: (
+        id: "Kaleidoscopic Athamaru",
+        traits: [],
+        flavor: Some("Your scales are a spectrum of color that shimmers in the light. In areas of bright light or dim light, you gain a +1 circumstance bonus to Performance checks. You also gain the Dazzle Seeker reaction."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Cirucmstance(
+            meta: (
+                id: "Kaleidoscopic Performance",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances: [
+                (
+                    stats: Some([Performance]),
+                    proficiency: None,
+                    circumstance: Some(["bright light", "dim light"]),
+                    bonus: "+1",
+                )
+            ]
+        ),
+        Action(
+            meta: (
+                id: "Dazzle Seeker",
+                traits: ["misfortune"],
+                flavor: Some("You flash your bright scales in the creature's eyes, making it hard for them to pinpoint your exact location. The creature must roll the flat check twice and take the worse result.")
+            ),
+            actions: 0,
+            frequency: None,
+            reaction_trigger: Some("A creature attempts a flat check to target you due to you being concealed from it")
+        )
+    ],
+)

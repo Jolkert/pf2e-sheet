@@ -1,0 +1,39 @@
+(
+    meta: (
+        id: "Hopeful Athamaru",
+        traits: [],
+        flavor: Some("You have begun to prepare yourself to become an athamaru matriarch, and are likely stepping outside of your community to better prepare yourself as a leader. As part of the physical change, you are substantially taller than you once were. Instead of Medium, your size is Large (see Large PCs for rules for Large player characters). In addition, you instill your allies with a feeling of hopefulness. You have a 10-foot aura that grants any ally in it a +1 circumstance bonus to saving throws against fear; this is an emotion and mental effect."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Size([Large]);
+        Aura(
+            meta: (
+                id: "Hopeful Athamaru Aura",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            )
+            range: 10,
+            effects: [
+                Circumstance(
+                    meta: (
+                        id: "Hopeful Athamaru Aura",
+                        traits: ["emotion", "mental"],
+                        flavor: None,
+                        legacy: false,
+                    ),
+                    circumstances [
+                        (
+                            stats: Some([Fortitude, Reflex, Will]),
+                            proficiency: None,
+                            circumstance: Some(["fear"]),
+                            bonus: "+1",
+                        ),
+                    ],
+                )
+            ],
+        )
+    ],
+)

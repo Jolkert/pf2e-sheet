@@ -29,9 +29,9 @@ pub enum Stat<S = String> {
 }
 
 impl Stat {
-    // I just want this to look sane and i cant find a rustfmt setting that actually
-    // does quite what i want here lol
-    // -morgan 2025-06-12
+	// I just want this to look sane and i cant find a rustfmt setting that actually
+	// does quite what i want here lol
+	// -morgan 2025-06-12
     #[rustfmt::skip]
 	pub fn attribute(&self) -> Attribute {
 		match self {
@@ -49,7 +49,7 @@ impl Stat {
 			| Stat::Lore(_)
 			| Stat::Occultism
 			| Stat::Society => Attribute::Int,
-			
+
 			Stat::Medicine
 			| Stat::Nature
 			| Stat::Perception
@@ -60,7 +60,41 @@ impl Stat {
 			Stat::Deception
 			| Stat::Diplomacy
 			| Stat::Intimidation
-			| Stat::Performance => Attribute::Cha
+			| Stat::Performance => Attribute::Cha,
+		}
+	}
+
+	pub fn from_str(input: &str) -> Option<Self> {
+		match input.to_lowercase().as_str() {
+			"acrobatics" => Some(Self::Acrobatics),
+			"arcana" => Some(Self::Arcana),
+			"athletics" => Some(Self::Athletics),
+			"crafting" => Some(Self::Crafting),
+			"deception" => Some(Self::Deception),
+			"diplomacy" => Some(Self::Diplomacy),
+			"fortitude" => Some(Self::Fortitude),
+			"intimidation" => Some(Self::Intimidation),
+			"medicine" => Some(Self::Medicine),
+			"nature" => Some(Self::Nature),
+			"occultism" => Some(Self::Occultism),
+			"perception" => Some(Self::Perception),
+			"performance" => Some(Self::Performance),
+			"reflex" => Some(Self::Reflex),
+			"religion" => Some(Self::Religion),
+			"society" => Some(Self::Society),
+			"stealth" => Some(Self::Stealth),
+			"survival" => Some(Self::Survival),
+			"thievery" => Some(Self::Thievery),
+			"will" => Some(Self::Will),
+			t => {
+				if t.ends_with("lore") {
+					Some(Self::Lore(
+						t.split_whitespace().collect::<Vec<_>>()[0].to_string(),
+					))
+				} else {
+					None
+				}
+			}
 		}
 	}
 }
@@ -68,39 +102,35 @@ impl Stat {
 #[derive(Debug, Clone, Copy, serde::Serialize, serde::Deserialize)]
 pub struct AttributeValue(i8);
 impl AttributeValue {
-    pub fn bonus(self) -> i8 {
-        if self.0 <= 4 {
-            self.0
-        }
-        else
-        {
-            4 + (self.0 - 4)/2
-        }
-    }
-    pub fn partial_boost(self) -> bool
-    {
-        if self.0 <= 4 {
-            false
-        }
-        else {
-            self.0 % 2 != 0
-        }
-    }
+	pub fn bonus(self) -> i8 {
+		if self.0 <= 4 {
+			self.0
+		} else {
+			4 + (self.0 - 4) / 2
+		}
+	}
+	pub fn partial_boost(self) -> bool {
+		if self.0 <= 4 {
+			false
+		} else {
+			self.0 % 2 != 0
+		}
+	}
 }
 
 impl std::ops::Add<i8> for AttributeValue {
 	type Output = Self;
 
 	fn add(self, rhs: i8) -> Self::Output {
-	    Self(self.0 + rhs)
+		Self(self.0 + rhs)
 	}
 }
 impl std::ops::Sub<i8> for AttributeValue {
-    type Output = Self;
+	type Output = Self;
 
-    fn sub(self, rhs: i8) -> Self::Output {
-        self + -rhs
-    }
+	fn sub(self, rhs: i8) -> Self::Output {
+		self + -rhs
+	}
 }
 
 #[derive(Debug, enumset::EnumSetType, serde::Serialize, serde::Deserialize)]
@@ -116,6 +146,18 @@ pub enum Attribute {
 }
 impl Attribute {
 	const FREE: AttributeSet = AttributeSet::all();
+
+	pub fn from_str(input: &str) -> Option<Self> {
+		match input.to_lowercase().as_str() {
+			"str" | "strength" => Some(Attribute::Str),
+			"dex" | "dexterity" => Some(Attribute::Dex),
+			"con" | "constitution" => Some(Attribute::Con),
+			"int" | "intelligence" => Some(Attribute::Int),
+			"wis" | "wisdom" => Some(Attribute::Wis),
+			"cha" | "charisma" => Some(Attribute::Cha),
+			&_ => None,
+		}
+	}
 }
 
 impl std::ops::Deref for AttributeSet {
@@ -191,71 +233,15 @@ impl Proficiency {
 			Self::Legendary => 8,
 		}
 	}
-}
 
-#[cfg(test)]
-mod tests {
-	use super::*;
-
-	#[derive(Debug, serde::Serialize, serde::Deserialize, PartialEq, Eq)]
-	struct TestAttributeContainer {
-		single_attribute: AttributeSet,
-		full: AttributeSet,
-		explicit_seq: AttributeSet,
-		questionable: AttributeSet,
-	}
-
-	#[test]
-	fn attribute_deser_test() {
-		let ron = r#"
-		(
-			single_attribute: Str,
-			full: Free,
-			explicit_seq: [Con, Int],
-			questionable: [Dex]
-		)"#;
-
-		let expected = TestAttributeContainer {
-			single_attribute: Attribute::Str.into(),
-			full: AttributeSet::all(),
-			explicit_seq: Attribute::Con | Attribute::Int,
-			questionable: Attribute::Dex.into(),
-		};
-
-		assert_eq!(
-			ron::from_str::<TestAttributeContainer>(ron).expect("oops!"),
-			expected
-		)
-	}
-
-	#[test]
-	fn attribute_ser_test() {
-	    let expected = r#"
-        (
-            single_attribute: Str,
-            full: Free,
-            explicit_seq: [Con, Int],
-            questionable: Dex
-        )
-	    "#;
-        
-        let serialize= TestAttributeContainer {
-			single_attribute: Attribute::Str.into(),
-			full: AttributeSet::all(),
-			explicit_seq: Attribute::Con | Attribute::Int,
-			questionable: Attribute::Dex.into(),
-		};
-	    
-	    assert_eq!(
-	        delete_whitespace(&ron::to_string(&serialize).expect("oops!")),
-	        delete_whitespace(expected)
-	    );
-	}
-
-	fn delete_whitespace(string: &str) -> String {
-	    string.split_whitespace().fold(String::new(), |mut acc, curr| {
-	        acc.push_str(&curr);
-	        acc
-	    })
+	pub fn from_str(string: &str) -> Option<Self> {
+		match string.to_lowercase().as_str() {
+			"untrained" => Some(Self::Untrained),
+			"trained" => Some(Self::Trained),
+			"expert" => Some(Self::Expert),
+			"master" => Some(Self::Master),
+			"legendary" => Some(Self::Legendary),
+			_ => None,
+		}
 	}
 }

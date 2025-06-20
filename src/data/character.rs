@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use saikoro::evaluation::SymbolTable;
 
 use crate::{
-	data::{Ancestry, Class, DamageType, Feature, Heritage, Meta},
+	data::{Ancestry, Class, DamageType, Feat, Heritage, Meta},
 	stats::{Attribute, Attributes, Proficiency, Stat},
 };
 
@@ -111,7 +111,8 @@ impl Character {
 					self.conditions.insert(Condition::Dead, 1);
 				}
 			} else {
-				let total_remaining_hp = (self.current_hp() + self.temp_hp).saturating_sub(damage);
+				let total_remaining_hp =
+					(self.current_hp() + self.temp_hp).saturating_sub(damage);
 
 				// condition is true iff damage <= temp hp (meaning subtraction is safe without
 				// underflow)
@@ -155,17 +156,6 @@ pub struct Background {
 	feats: Vec<Feat>,
 	summary: String,
 }
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub struct Feat {
-	pub meta: Meta,
-	pub level: u8,
-	pub prereqs: Vec<Prerequisite>,
-	pub features: Vec<Feature>,
-}
-
-#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
-pub enum Prerequisite {}
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, serde::Serialize, serde::Deserialize)]
 pub enum Condition {
