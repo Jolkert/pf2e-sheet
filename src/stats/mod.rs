@@ -151,14 +151,6 @@ impl Attribute {
 	const FREE: AttributeSet = AttributeSet::all();
 }
 
-impl std::ops::Deref for AttributeSet {
-	type Target = EnumSet<Attribute>;
-
-	fn deref(&self) -> &Self::Target {
-		&self.0
-	}
-}
-
 impl std::str::FromStr for Attribute {
 	// TODO: proper error type
 	type Err = ();
@@ -206,6 +198,14 @@ pub struct AttributeSet(EnumSet<Attribute>);
 impl AttributeSet {
 	pub const fn all() -> Self {
 		Self(EnumSet::all())
+	}
+}
+
+impl std::ops::Deref for AttributeSet {
+	type Target = EnumSet<Attribute>;
+
+	fn deref(&self) -> &Self::Target {
+		&self.0
 	}
 }
 
