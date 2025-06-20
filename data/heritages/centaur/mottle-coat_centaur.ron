@@ -1,0 +1,71 @@
+(
+    meta: (
+        id: "Mottle-Coat Centaur",
+        traits: [],
+        flavor: Some("Your coat is mottled or striped, granting you natural camouflage in your home environment. Select a terrain from the following: arctic, desert, forest, mountain, plains, or swamp. In your selected terrain, you gain a +1 circumstance bonus to Stealth checks to Hide or Sneak and to Deception checks to Feint."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Choice((1, [
+            Flavor(
+                id: "home terrain: arctic",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            Flavor(
+                id: "home terrain: desert",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            Flavor(
+                id: "home terrain: forest",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            Flavor(
+                id: "home terrain: mountain",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            Flavor(
+                id: "home terrain: plains",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            Flavor(
+                id: "home terrain: swamp",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+        ])),
+        Circumstance(
+            meta: (
+                id: "Mottle-Coat Camoflage",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Stealth]),
+                    proficiency: None,
+                    circumstance: Some(["hide or sneak in your home terrain"]),
+                    bonus: "+1",
+                ),
+                (
+                    stats: Some([Deception]),
+                    proficiency: None,
+                    circumstance: Some(["feint in your home terrain"]),
+                    bonus: "+1",
+                ),
+            ],
+        ),
+    ],
+)

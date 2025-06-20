@@ -27,6 +27,7 @@ pub enum Feature {
 	// TODO: give this u8 a meaningful name probably? -morgan 2025-06-19
 	Choice(u8, Vec<Feature>),
 	Hierarchy(Vec<Feature>),
+	HpOverride(u8),
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -63,6 +64,7 @@ pub struct Action {
 	actions: u8,
 	frequency: Option<String>,
 	reaction_trigger: Option<String>,
+	requirements: Option<String>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]

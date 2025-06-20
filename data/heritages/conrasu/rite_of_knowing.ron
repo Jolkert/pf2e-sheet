@@ -1,0 +1,23 @@
+(
+    meta: (
+        id: "Rite of Knowing",
+        traits: [],
+        flavor: Some("You enhanced your exoskeleton with a connection to Axis, allowing you to tap into the infinite knowledge of the plane. You gain the Call to Axis action."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Action(
+            meta: (
+                id: "Call to Axis",
+                traits: ["fortune"],
+                flavor: Some("You call upon the knowledge of Axis to ensure the accuracy of your information. You roll a second time and use the higher result. If you roll a critical failure, you get a failure instead. If you roll a success, you get a critical success instead."),
+                legacy: false,
+            ),
+            actions: 0,
+            frequency: Some("1"),
+            reaction_trigger: None,
+            requirements: Some("You are about to attempt a check to Recall Knowledge."),
+        ),
+    ],
+)

@@ -1,0 +1,32 @@
+(
+    meta: (
+        id: "Liminal Catfolk",
+        traits: [],
+        flavor: Some("You've inherited a closeness to the far corners of the world, where the boundaries between dimensions grow thin. You can cast the detect magic cantrip as an occult innate spell at will. A cantrip is heightened to half your level rounded up. You also gain a +1 circumstance bonus to Occultism checks to Recall Knowledge about creatures that originated on planes other than the Universe."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Spell(
+            name: "detect magic",
+            tradition: Occult,
+            innate_casts: None,
+        ),
+        Circumstance(
+            meta: (
+                id: "Liminal Catfolk Sense",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Occultism]),
+                    proficiency: None,
+                    circumstance: Some(["Recall Knowledge about creatures that originated on planes other than the Universe"]),
+                    bonus: "+1",
+                ),
+            ],
+        ),
+    ],
+)

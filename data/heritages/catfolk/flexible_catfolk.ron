@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Flexible Catfolk",
+        traits: [],
+        flavor: Some("You've inherited flexibility beyond that of most humanoids. You don't treat tight spaces that don't require you to Squeeze as difficult terrain. In addition, you get a +1 circumstance bonus to checks when you attempt to Escape."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Circumstance(
+            meta: (
+                id: "Catfolk Flexibility",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Acrobatics, Athletics]),
+                    proficiency: None,
+                    circumstance: Some(["escape"]),
+                    bonus: "+1",
+                ),
+            ],
+        ),
+    ],
+)

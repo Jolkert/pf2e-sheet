@@ -1,0 +1,10 @@
+(
+    meta: (
+        id: "Murkeyed Azarketi",
+        traits: [],
+        flavor: Some("You live in murky waters and have grown accustomed to life in a low-visibility environment. You need only a successful DC 3 flat check when targeting a concealed creature and a successful DC 9 flat check when targeting a hidden creature."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [],
+)

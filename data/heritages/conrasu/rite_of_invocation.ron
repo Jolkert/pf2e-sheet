@@ -1,0 +1,21 @@
+(
+    meta: (
+        id: "Rite of Invocation",
+        traits: [],
+        flavor: Some("You augmented your exoskeleton with magic. You gain one cantrip from the arcane or occult spell list. You can cast this spell as an innate spell at will. A cantrip is heightened to a spell level equal to half your level rounded up. "),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Choice((1, [
+            CantripChoice(
+                tradition: Arcane,
+                innate: true,
+            ),
+            CantripChoice(
+                tradition: Occult,
+                innate: true,
+            )
+        ])),
+    ],
+)

@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Clawed Catfolk",
+        traits: [],
+        flavor: Some("Your family has particularly long, sharp claws capable of delivering bleeding wounds with a wicked swipe. You gain a claw unarmed attack that deals 1d6 slashing damage. Your claws are in the brawling group and have the agile, finesse, and unarmed traits."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Attack(
+            meta: (
+                id: "Claw",
+                traits: ["agile", "finesse", "unarmed"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            damage: "1d6",
+            damage_type: Slashing,
+            range: None,
+            bulk: 0,
+            hands: 1,
+            group: Brawling,
+            category: Unarmed,
+        ),
+    ],
+)

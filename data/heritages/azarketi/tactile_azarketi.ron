@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Tactile Azarketi",
+        traits: [],
+        flavor: Some("Your skin can detect the slightest changes in ocean currents. You gain imprecise wavesense with a range of 30 feet, allowing you to sense motion in the water around you. You also gain a +1 circumstance bonus to Survival checks to Sense Direction in aquatic environments."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Circumstance(
+            meta: (
+                id: "Tactile Azarketi Senses",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Survival]),
+                    proficiency: None,
+                    circumstance: Some(["sense direction"]),
+                    bonus: "+1",
+                ),
+            ],
+        )
+    ],
+)

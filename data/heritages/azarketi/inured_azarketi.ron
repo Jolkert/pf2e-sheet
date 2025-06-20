@@ -1,0 +1,12 @@
+(
+    meta: (
+        id: "Inured Azarketi",
+        traits: [],
+        flavor: Some("Your ancestors had to survive in polluted water that made every breath noxious. You gain poison resistance equal to half your level (minimum 1). Furthermore, you can survive outside of water for 72 hours before you begin to suffocate."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Condition((Resistance(Poison), "trunc({level}/2)")),
+    ],
+)

@@ -1,0 +1,34 @@
+(
+    meta: (
+        id: "Stoutheart Centaur",
+        traits: [],
+        flavor: Some("You're a hardy centaur, firm of stance and strong of heart. You gain 10 Hit Points from your ancestry instead of 8 and gain a +1 circumstance bonus to Acrobatics checks to Balance and to your Reflex DC to avoid being tripped."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        HpOverride(10),
+        Circumstance(
+            meta: (
+                id: "Stoutheart Hardiness",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Acrobatics]),
+                    proficiency: None,
+                    circumstance: Some(["balance"]),
+                    bonus: "+1",
+                ),
+                (
+                    stats: Some([Reflex]),
+                    proficiency: None,
+                    circumstance: Some(["avoid being tripped"]),
+                    bonus: "+1",
+                ),
+            ],
+        ),
+    ],
+)

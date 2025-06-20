@@ -1,0 +1,10 @@
+(
+    meta: (
+        id: "Jungle Catfolk",
+        traits: [],
+        flavor: Some("You're descended from jungle stalkers and can move swiftly through scrub and underbrush. You ignore difficult terrain from undergrowth, and greater difficult terrain from undergrowth is only difficult terrain for you."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [],
+)

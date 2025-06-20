@@ -1,0 +1,16 @@
+(
+    meta: (
+        id: "Forge-Blessed Dwarf",
+        traits: [],
+        flavor: Some("You are from a family in Highhelm that venerates a particular dwarven deity above all others. Your birth was blessed by your family's patron deity, granting you a fraction of their power. Choose one deity from the dwarven pantheon. You can cast the 1st-level spell they grant clerics (such as soothe if your family's patron is Bolka) as an innate divine spell once per week."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Spell(
+            name: "", // Uh... fix this
+            tradition: Divine,
+            innate_casts: Some("1"),
+        ),
+    ],
+)

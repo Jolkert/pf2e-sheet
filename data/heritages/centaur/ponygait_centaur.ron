@@ -1,0 +1,28 @@
+(
+    meta: (
+        id: "Ponygait Centaur",
+        traits: [],
+        flavor: Some("You are smaller than most other centaurs, though no less fleet of foot. Instead of Large, your size is Medium. You gain a +1 circumstance bonus to Reflex saving throws."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Size([Medium]),
+        Circumstance(
+            meta: (
+                id: "Ponygait Reflexes",
+                traits: [],
+                flavor: None,
+                legacy: false,
+            ),
+            circumstances [
+                (
+                    stats: Some([Reflex]),
+                    proficiency: None,
+                    circumstance: None,
+                    bonus: "+1",
+                ),
+            ],
+        ),
+    ],
+)

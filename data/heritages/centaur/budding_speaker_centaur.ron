@@ -1,0 +1,21 @@
+(
+    meta: (
+        id: "Budding Speaker Centaur",
+        traits: [],
+        flavor: Some("You were born with a spark of magic that could set you on the path to becoming a Greenspeaker or Faithspeaker. Select divine or primal. If you selected divine, you're a Faithspeaker. If you selected primal, you're a Greenspeaker. This choice can't be changed. You gain one cantrip from the chosen spell list. You can cast this spell as an innate spell at will. A cantrip is heightened to a spell rank equal to half your level rounded up. "),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Choice((1, [
+            CantripChoice(
+                tradition: Divine,
+                innate: true,
+            ),
+            CantripChoice(
+                tradition: Primal,
+                innate: true,
+            ),
+        ])),
+    ],
+)

@@ -1,0 +1,18 @@
+(
+    meta: (
+        id: "Fleetwind Centaur",
+        traits: [],
+        flavor: Some("You're sleek of frame and capable of reaching incredible speeds on hooves alone. Your Speed increases by 5 feet."),
+        legacy: false,
+    ),
+    prereqs: [],
+    features: [
+        Speed(
+            walk: 35,
+            burrow: 0,
+            climb: 0,
+            fly: 0,
+            swim: 0,
+        ),
+    ],
+)

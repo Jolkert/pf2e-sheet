@@ -1,0 +1,28 @@
+(
+    meta: (
+        id: "Rite of Reinforcement",
+        traits: [],
+        flavor: Some("Your woven exoskeleton rivals the hardest armors that can be found. Your exoskeleton is medium armor in the plate armor group that grants a +4 item bonus to AC, a Dex cap of +1, a check penalty of –2, a speed penalty of –5 feet, and a Strength value of 16, and has the comfort trait. You can never wear other armor or remove your exoskeleton. You can etch armor runes onto your exoskeleton as normal."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Defense(
+            meta: (
+                id: "Exoskeleton"
+                traits: ["comfort"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            bulk: 0,
+            ac_bonus: +4,
+            dex_cap: +1,
+            check_penalty: -2,
+            speed_penalty: -5,
+            str_req: +3,
+            category: Medium,
+            group: Plate,
+        ),
+    ],
+)

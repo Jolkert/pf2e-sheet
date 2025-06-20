@@ -1,0 +1,27 @@
+(
+    meta: (
+        id: "Spined Azarketi",
+        traits: [],
+        flavor: Some("Your fins conceal launchable toxic spines. You have a spine ranged unarmed attack with the unarmed trait that deals 1d4 poison damage, has a range increment of 10 feet, and is in the dart weapon group."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Attack(
+            meta: (
+                id: "Spine",
+                traits: ["unarmed"],
+                flavor: None,
+                legacy: false,
+            ),
+            price: 0,
+            damage: "1d4",
+            damage_type: Poison,
+            range: Some(10),
+            bulk: 0,
+            hands: 0,
+            group: Dart,
+            category: Unarmed,
+        )
+    ],
+)
