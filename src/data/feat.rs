@@ -16,13 +16,13 @@ impl Feat {
 		Feat {
 			meta: Meta {
 				id: String::new(),
-				traits: Vec::<String>::new(),
+				traits: Vec::new(),
 				flavor: None,
 				legacy: false,
 			},
 			level: 1,
-			prereqs: Vec::<Vec<Prerequisite>>::new(),
-			features: Vec::<Feature>::new(),
+			prereqs: Vec::new(),
+			features: Vec::new(),
 		}
 	}
 }
