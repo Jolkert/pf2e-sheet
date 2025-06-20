@@ -1,0 +1,18 @@
+(
+    meta: (
+        id: "Swimming Animal",
+        traits: ["aquatic"],
+        flavor: Some("You are an aquatic animal who is most comfortable in the water. You may spend much of your time in the water like an alligator, seal, whale, or dolphin, or you may require the water to breathe like a fish or some crustaceans. You have one animal attack of your choice (typically claw, jaws, or tail; see the sidebar). You gain the aquatic trait and you have a swim Speed of 30 feet. The aquatic trait means you breathe water but not air, and your bludgeoning and slashing unarmed Strikes don't take the usual –2 penalty for being underwater."),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Speed(
+            walk: 0,
+            burrow: 0,
+            climb: 0,
+            fly: 0,
+            swim: 30,
+        ),
+    ],
+)

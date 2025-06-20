@@ -7,6 +7,12 @@
     ),
     prereqs: [],
     features: [
-        Speed(("Walk", 30)),
+        Speed(
+            walk: 30,
+            burrow: 0,
+            climb: 0,
+            fly: 0,
+            swim: 0,
+        ),
     ],
 )

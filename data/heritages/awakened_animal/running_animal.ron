@@ -1,0 +1,18 @@
+(
+    meta: (
+        id: "Running Animal",
+        traits: [],
+        flavor: Some("You are an animal meant for running at great speeds across land. Typically, you run on all fours like a dog, cheetah, or an iguana, but you could also use two legs like a kangaroo, emu, or penguin. You have a land Speed of 30 feet and one animal attack of your choice (typically claw, jaws, or tail; see the sidebar). "),
+        legacy: true,
+    ),
+    prereqs: [],
+    features: [
+        Speed(
+            walk: 30,
+            burrow: 0,
+            climb: 0,
+            fly: 0,
+            swim: 0,
+        ),
+    ],
+)
